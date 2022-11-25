@@ -94,7 +94,7 @@ const Interface = {
   DisplayScreen: function(id, playClick = true) {
     responsiveVoice.cancel();
     if (playClick) {
-      Sounds.PlayClick();
+      //Sounds.PlayClick();
     }
     $('.screen').hide();
     $(`#${id}`).show();
