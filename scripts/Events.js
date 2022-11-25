@@ -51,7 +51,11 @@ const Events = {
   },
 
   GetAttackGuardianSuccess: function() {
-    MessageBox.DisplaySpeak(EventMessages.GetAttackGuardianSuccessText());
+    MessageBox.DisplaySpeak(EventMessages.GetAttackGuardianSuccessText(), null, Events.PlayAttackGuardianSound());
+  },
+
+  PlayAttackGuardianSound: function() {
+    Sounds.PlaySound(`monsters/templeguardian`);
   },
 
   GetHealTest: function() {

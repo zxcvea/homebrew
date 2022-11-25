@@ -33,6 +33,27 @@ const Interface = {
       <div class="d-grid gap-2 inner">
         <div class="title">Mythos</div>
         <a class="btn btn-primary" href="javascript:void(0);" id="btn-mythos-start">Mythos Start</a>
+        <a class="btn btn-primary" href="javascript:void(0);" id="btn-mythos-sounds">Sounds</a>
+        <a class="btn btn-secondary" href="javascript:void(0);" id="btn-back">Back</a>
+      </div>
+      </div>
+      <div class="screen" id="MythosSoundsScreen">
+      <div class="d-grid gap-2 inner">
+        <div class="title">Mythos Sounds</div>
+        <div class="row">
+          <div class="col d-grid">
+            <a class="btn btn-primary btn-mythos-play" href="javascript:void(0);" data-ref="cultist">Cultist</a><br />
+            <a class="btn btn-primary btn-mythos-play" href="javascript:void(0);" data-ref="warlock">Warlock</a><br />
+            <a class="btn btn-primary btn-mythos-play" href="javascript:void(0);" data-ref="deepone">Deepone</a><br />
+            <a class="btn btn-primary btn-mythos-play" href="javascript:void(0);" data-ref="ghost">Ghost</a>
+          </div>
+          <div class="col d-grid">
+            <a class="btn btn-primary btn-mythos-play" href="javascript:void(0);" data-ref="dimensionalshambler">Dimensional</a><br />
+            <a class="btn btn-primary btn-mythos-play" href="javascript:void(0);" data-ref="formlessspawn">Formless</a><br />
+            <a class="btn btn-primary btn-mythos-play" href="javascript:void(0);" data-ref="starspawn">Starspawn</a><br />
+            <a class="btn btn-primary btn-mythos-play" href="javascript:void(0);" data-ref="templeguardian">Guardian</a>
+          </div>
+        </div>
         <a class="btn btn-secondary" href="javascript:void(0);" id="btn-back">Back</a>
       </div>
       </div>
@@ -93,9 +114,6 @@ const Interface = {
 
   DisplayScreen: function(id, playClick = true) {
     responsiveVoice.cancel();
-    if (playClick) {
-      //Sounds.PlayClick();
-    }
     $('.screen').hide();
     $(`#${id}`).show();
   },
@@ -103,7 +121,6 @@ const Interface = {
   Bind: function() {
     $(document).on('click', '#btn-play-music', function(){
       responsiveVoice.cancel();
-      Sounds.PlayClick();
       if ($(this).hasClass('btn-primary')) {
         $(this).removeClass('btn-primary');
         $(this).addClass('btn-secondary');
@@ -119,13 +136,11 @@ const Interface = {
 
     $(document).on('click', '.btn-enterfs, .btn-exitfs', function(){
       responsiveVoice.cancel();
-      Sounds.PlayClick('click-quick');
       Interface.ToggleFullscreen();
     });
 
     $(document).on('click', '#btn-exit-settings', function(){
       responsiveVoice.cancel();
-      Sounds.PlayClick('click-quick');
       $('#settingsoverlay').stop().fadeOut('slow', function() {
 
       });
@@ -147,6 +162,15 @@ const Interface = {
       Interface.DisplayScreen('MessageScreen');
       Interface.SetButtonAction('Mythos', 'Continue', 'back');
       Events.GetMythosEvent();
+    });
+
+    $(document).on('click', '#btn-mythos-sounds', function(){
+      Interface.DisplayScreen('MythosSoundsScreen');
+    });
+
+    $(document).on('click', '.btn-mythos-play', function(){
+      const sound = $(this).attr('data-ref');
+      Sounds.PlaySound(`monsters/${sound}`);
     });
 
     $(document).on('click', '#btn-actions-search', function(){
@@ -245,7 +269,6 @@ const Interface = {
 
     $(document).on('click', '#btn-action', function(){
       responsiveVoice.cancel();
-      Sounds.PlayClick();
       const ref = $(this).attr('data-ref');
 
       if (ref == `back`) {
@@ -298,7 +321,7 @@ const Interface = {
       if (ref == `place-trapdoor`) {
         Events.GetUnlockDoorSuccess();
         Interface.SetButtonAction('Place Trap', 'Continue', 'back');
-      }
+      }  
     });
 
    

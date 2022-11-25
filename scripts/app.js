@@ -26,9 +26,13 @@ const App = {
     $('body').append(container);
   },
 
-  Speak: function(message) {
+  Speak: function(message, callbackFunction) {
     if (App.VOICE_ENABLED) {
-      responsiveVoice.speak(message);
+      if (callbackFunction !== undefined) {
+        responsiveVoice.speak(message, 'UK English Male', {onend: callbackFunction});
+      } else {
+        responsiveVoice.speak(message, 'UK English Male');
+      }
     }
   },
 

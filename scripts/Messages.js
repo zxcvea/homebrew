@@ -14,18 +14,18 @@ const MessageBox = {
     MessageHistory.push(message);
   },
 
-  Speak: function(speakMessageObj) {
+  Speak: function(speakMessageObj, callbackFunction = undefined) {
     if (Array.isArray(speakMessageObj)) {
       let speechText = '';
       for (const text of speakMessageObj) {
         speechText += text.toString() + ' ';
       }
       if (speechText !== '') {
-        App.Speak(Text.FormatToSpeech(speechText));
+        App.Speak(Text.FormatToSpeech(speechText), callbackFunction);
       }
     }
     if (typeof speakMessageObj === `string`) {
-      App.Speak(Text.FormatToSpeech(speakMessageObj));
+      App.Speak(Text.FormatToSpeech(speakMessageObj), callbackFunction);
     }
   },
 
@@ -54,9 +54,9 @@ const MessageBox = {
     MessageBox.UpdateHistory(displayMessage);
   },
 
-  DisplaySpeak: function(messageObj, speakMessageObj = null) {
+  DisplaySpeak: function(messageObj, speakMessageObj = null, callbackFunction = undefined) {
     MessageBox.Display(messageObj);
-    MessageBox.Speak(speakMessageObj == null ? messageObj : speakMessageObj);
+    MessageBox.Speak(speakMessageObj == null ? messageObj : speakMessageObj, callbackFunction);
   },
 
   UpdateActions: function(action = Actions.Continue, actionText = ActionText.Continue, index = 0, action2 = '', actionText2 = '', index2 = 0) {
