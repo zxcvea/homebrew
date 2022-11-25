@@ -2,28 +2,28 @@ const Sounds = {
 
   PlaySound: function(sound = 'click01') {
     if (App.SOUND_ENABLED && App.SOUND_CLICK_ENABLED) {
-      const audio = new Audio('../sounds/' + sound + '.mp3');
+      const audio = new Audio('sounds/' + sound + '.mp3');
       audio.play();
     }
   },
 
   PlayClick: function(click = 'click01') {
     if (App.SOUND_ENABLED && App.SOUND_CLICK_ENABLED) {
-      const audio = new Audio('../sounds/' + click + '.mp3');
+      const audio = new Audio('sounds/' + click + '.mp3');
       audio.play();
     }
   },
 
   PlayBoard: function(click = 'board') {
     if (App.SOUND_ENABLED && App.SOUND_CLICK_ENABLED) {
-      const audio = new Audio('../sounds/' + click + '.mp3');
+      const audio = new Audio('sounds/' + click + '.mp3');
       audio.play();
     }
   },
 
   PlayToken: function(success = false) {
     if (App.SOUND_ENABLED && App.SOUND_CLICK_ENABLED) {
-      const mp3file = success ? "../sounds/token01.mp3" : "../sounds/token02.mp3";
+      const mp3file = success ? "sounds/token01.mp3" : "sounds/token02.mp3";
       const audio = new Audio(mp3file);
       audio.play();
     }
@@ -31,21 +31,21 @@ const Sounds = {
 
   PlayUnlock: function() {
     if (App.SOUND_ENABLED && App.SOUND_CLICK_ENABLED) {
-      const audio = new Audio("../sounds/unlock01.mp3");
+      const audio = new Audio("sounds/unlock01.mp3");
       audio.play();
     }
   },
 
   PlayAttack: function() {
     if (App.SOUND_ENABLED && App.SOUND_CLICK_ENABLED) {
-      const audio = new Audio("../sounds/attacksingle01.mp3");
+      const audio = new Audio("sounds/attacksingle01.mp3");
       audio.play();
     }
   },
 
   PlayTransition: function(isMythos = false) {
     if (App.SOUND_ENABLED) {
-      const mp3file = isMythos ? "../sounds/phase-mythos01.mp3" : "../sounds/phase-investigator.mp3";
+      const mp3file = isMythos ? "sounds/phase-mythos01.mp3" : "sounds/phase-investigator.mp3";
       const audio = new Audio(mp3file);
       audio.play();
     }
@@ -84,7 +84,7 @@ const Sounds = {
 
   StartIntroMusic: function() {
     if (App.MUSIC_ENABLED) {
-      App.INTRO_MUSIC = new Audio("../sounds/intro.mp3");
+      App.INTRO_MUSIC = new Audio("sounds/intro.mp3");
       if (typeof App.INTRO_MUSIC.loop == 'boolean')
       {
         App.INTRO_MUSIC.loop = true;
@@ -112,7 +112,7 @@ const Sounds = {
     if (App.MUSIC_ENABLED) {
       const random = Random.Number(8, App.TRACK_NUMBER);
       App.TRACK_NUMBER = random;
-      App.MUSIC = new Audio(`../sounds/music/track0${random}.mp3`);
+      App.MUSIC = new Audio(`sounds/music/track0${random}.mp3`);
       App.MUSIC.addEventListener('ended', function() {
         Sounds.PlayTrack();
       });
@@ -122,7 +122,7 @@ const Sounds = {
 
   StartMusic: function() {
     if (App.MUSIC_ENABLED) {
-      App.MUSIC = new Audio("../sounds/music/track01.mp3");
+      App.MUSIC = new Audio("sounds/music/track01.mp3");
       if (typeof App.MUSIC.loop == 'boolean')
       {
         App.MUSIC.loop = true;
