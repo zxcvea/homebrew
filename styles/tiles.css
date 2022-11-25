@@ -1,0 +1,211 @@
+.tilectn {
+  display: block;
+  position: absolute;
+
+}
+
+.tilectn .name {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  color: #000;
+  padding: 3px 8px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 11px;
+  z-index: 2;
+  font-family: 'EB Garamond', serif;
+}
+
+.tilectn .name span{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-size: contain;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+.tile {
+  display: block;
+  position: absolute;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.tile.highlight {
+  -webkit-box-shadow:inset 0px 0px 0px 3px #0ee607;
+  -moz-box-shadow:inset 0px 0px 0px 3px #0ee607;
+  box-shadow:inset 0px 0px 0px 3px #0ee607;
+}
+
+.token {
+  display: block;
+  position: absolute;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  z-index: 40;
+  border: 1px solid transparent;
+}
+
+.token:hover {
+  z-index: 60;
+}
+
+.tokenref {
+  display: block;
+  position: absolute;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  z-index: 10;
+  border: 1px solid red;
+  width: 75px; height: 75px; cursor: pointer; margin: -37.5px 0 0 -37.5px; border-radius: 50%;
+}
+
+/** Tokens **/
+.search { background-image: url(../img/tokens/search.webp); width: 75px; height: 75px; cursor: pointer; border-radius: 50%; z-index: 100; }
+.interact { background-image: url(../img/tokens/interact.webp); width: 75px; height: 75px; cursor: pointer; border-radius: 50%; z-index: 100; }
+.explore { background-image: url(../img/tokens/explore.webp); width: 75px; height: 75px; cursor: pointer; margin: -37.5px 0 0 -37.5px; border-radius: 50%; z-index: 100; }
+.sight { background-image: url(../img/tokens/sight.webp); width: 75px; height: 75px; cursor: pointer; margin: -37.5px 0 0 -37.5px; border-radius: 50%; z-index: 100; }
+
+.search:hover,
+.interact:hover,
+.explore:hover,
+.sight:hover
+{
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.token.highlight
+{
+  border: 3px solid #0ee607;
+}
+
+/** Doors & Walls **/
+
+.door { background-image: url(../img/tokens/door.webp); width: 115px; height: 60px; }
+.wall { background-image: url(../img/tokens/wall.webp); width: 115px; height: 60px; }
+
+.door,
+.wall
+{
+  border: 2px solid rgba(255, 255, 255, .5);
+  z-index: 1;
+}
+
+.door:hover,
+.wall:hover
+{
+  border: 2px solid rgba(255, 255, 255, .7);
+}
+
+.door.highlight,
+.wall.highlight
+{
+  border: 3px solid #0ee607;
+}
+
+
+/** Hazards **/
+.hazard {
+  display: block;
+  position: absolute;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  z-index: 35;
+  border: 2px solid rgba(255, 255, 255, .7);
+  cursor: pointer;
+  margin: 20px 0 0 -100px;
+}
+
+.zindex {
+  z-index: 40;
+}
+
+.hazard.zindex {
+  z-index: 51;
+}
+
+.hazard.highlight
+{
+  border: 3px solid #0ee607;
+}
+
+.hazard:hover {
+  z-index: 60;
+  border: 3px solid #ff0000;
+}
+
+.fire { background-image: url(../img/tokens/fire.webp); width: 75px; height: 75px; }
+.darkness { background-image: url(../img/tokens/darkness.webp); width: 75px; height: 75px; }
+.water { background-image: url(../img/tokens/water.webp); width: 75px; height: 75px; }
+.rift { background-image: url(../img/tokens/rift.webp); width: 75px; height: 75px; }
+.overgrowth { background-image: url(../img/tokens/overgrowth.webp); width: 75px; height: 75px; }
+.rubble { background-image: url(../img/tokens/rubble.webp); width: 75px; height: 75px; }
+
+/** Start Pos **/
+.startPos {
+  display: block;
+  position: absolute;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-image: url(../img/tokens/startPos.webp);
+  width: 128px;
+  height: 128px;
+  margin-top: -64px;
+  margin-left: -64px;
+  z-index: 100;
+}
+
+
+/** Tiles 2x2 **/
+.lobby { background-image: url(../img/tiles/2x2/lobby.webp); width: 512px; height: 512px; }
+.yard4 { background-image: url(../img/tiles/2x2/yard4.webp); width: 512px; height: 512px; }
+.dinningroom { background-image: url(../img/tiles/2x2/dinningroom.webp); width: 512px; height: 512px; }
+.townsquare { background-image: url(../img/tiles/2x2/townsquare.webp); width: 512px; height: 512px; }
+.ballroom { background-image: url(../img/tiles/2x2/ballroom.webp); width: 512px; height: 512px; }
+.warehouse { background-image: url(../img/tiles/2x2/warehouse.webp); width: 512px; height: 512px; }
+.lounge { background-image: url(../img/tiles/2x2/lounge.webp); width: 512px; height: 512px; }
+.pier { background-image: url(../img/tiles/2x2/pier.webp); width: 512px; height: 512px; }
+.interiorhall { background-image: url(../img/tiles/2x2/interiorhall.webp); width: 512px; height: 512px; }
+.yard3 { background-image: url(../img/tiles/2x2/yard3.webp); width: 512px; height: 512px; }
+.conservatory { background-image: url(../img/tiles/2x2/conservatory.webp); width: 512px; height: 512px; }
+.storefront { background-image: url(../img/tiles/2x2/storefront.webp); width: 512px; height: 512px; }
+.basement { background-image: url(../img/tiles/2x2/basement.webp); width: 512px; height: 512px; }
+.fleamarket { background-image: url(../img/tiles/2x2/fleamarket.webp); width: 512px; height: 512px; }
+.attic { background-image: url(../img/tiles/2x2/attic.webp); width: 512px; height: 512px; }
+.parkpond { background-image: url(../img/tiles/2x2/parkpond.webp); width: 512px; height: 512px; }
+
+/** Tiles 2x1 **/
+.billardsroom { background-image: url(../img/tiles/2x1/billardsroom.webp); width: 512px; height: 256px; }
+.alleyend { background-image: url(../img/tiles/2x1/alleyend.webp); width: 512px; height: 256px; }
+.office { background-image: url(../img/tiles/2x1/office.webp); width: 512px; height: 256px; }
+.houseboat { background-image: url(../img/tiles/2x1/houseboat.webp); width: 512px; height: 256px; }
+.bedroom2 { background-image: url(../img/tiles/2x1/bedroom2.webp); width: 512px; height: 256px; }
+.alley2 { background-image: url(../img/tiles/2x1/alley2.webp); width: 512px; height: 256px; }
+.belltower { background-image: url(../img/tiles/2x1/belltower.webp); width: 512px; height: 256px; }
+.streetcorner1 { background-image: url(../img/tiles/2x1/streetcorner1.webp); width: 512px; height: 256px; }
+.hallstairs { background-image: url(../img/tiles/2x1/hallstairs.webp); width: 512px; height: 256px; }
+.hallcorner3 { background-image: url(../img/tiles/2x1/hallcorner3.webp); width: 512px; height: 256px; }
+.street1 { background-image: url(../img/tiles/2x1/street1.webp); width: 512px; height: 256px; }
+.hallcorner2 { background-image: url(../img/tiles/2x1/hallcorner2.webp); width: 512px; height: 256px; }
+.alleycorner2 { background-image: url(../img/tiles/2x1/alleycorner2.webp); width: 512px; height: 256px; }
+.yard2 { background-image: url(../img/tiles/2x1/yard2.webp); width: 512px; height: 256px; }
+.beach { background-image: url(../img/tiles/2x1/beach.webp); width: 512px; height: 256px; }
+.entryhall { background-image: url(../img/tiles/2x1/entryhall.webp); width: 512px; height: 256px; }
+.streetcorner2 { background-image: url(../img/tiles/2x1/streetcorner2.webp); width: 512px; height: 256px; }
+.study { background-image: url(../img/tiles/2x1/study.webp); width: 512px; height: 256px; }
+.rentaldock { background-image: url(../img/tiles/2x1/rentaldock.webp); width: 512px; height: 256px; }
+.hallcorner1 { background-image: url(../img/tiles/2x1/hallcorner1.webp); width: 512px; height: 256px; }
+.alleycorner1 { background-image: url(../img/tiles/2x1/alleycorner1.webp); width: 512px; height: 256px; }
+.hall1 { background-image: url(../img/tiles/2x1/hall1.webp); width: 512px; height: 256px; }
+.dock2 { background-image: url(../img/tiles/2x1/dock2.webp); width: 512px; height: 256px; }
+.bedroom1 { background-image: url(../img/tiles/2x1/bedroom1.webp); width: 512px; height: 256px; }
+.alley1 { background-image: url(../img/tiles/2x1/alley1.webp); width: 512px; height: 256px; }
+.library { background-image: url(../img/tiles/2x1/library.webp); width: 512px; height: 256px; }
+.yard1 { background-image: url(../img/tiles/2x1/yard1.webp); width: 512px; height: 256px; }
+.street2 { background-image: url(../img/tiles/2x1/street2.webp); width: 512px; height: 256px; }

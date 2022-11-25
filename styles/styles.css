@@ -1,0 +1,229 @@
+html, body { display: block; font-family: 'EB Garamond', serif; margin: 0; height: 100%; font-size: 18px; border: 0; overflow: hidden; background: #000; }
+html { text-align: left; }
+div { border: 0; }
+a, a:link, a:visited, a:hover { color: #000; font-style: normal; text-decoration: none; outline: 0; }
+.clear { clear: both; height: 0; }
+
+input {
+  border: none;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none; /*remove the resize handle on the bottom right*/
+  background: none;
+}
+
+input:focus, input:-internal-autofill-selected,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+  background: none;
+}
+
+.noselect {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+#container {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#overlay {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 50;
+  background: red;
+  opacity: 0.3;
+}
+
+#board {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#map {
+  position: absolute;
+  display: block;
+  width: 4608px;
+  height: 4608px;
+  top: 50%;
+  left: 50%;
+  margin-left: -2304px;
+  margin-top: -2304px;
+}
+
+#grid {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  z-index: initial;
+}
+
+.tilt {
+  transform: perspective(1000px) rotateX(10deg);
+}
+
+.base { background: url(../img/icons/icon-base.webp) 0 0 no-repeat; }
+.btt { background: url(../img/icons/icon-btt.webp) 0 0 no-repeat; }
+.soa { background: url(../img/icons/icon-soa.webp) 0 0 no-repeat; }
+.sot { background: url(../img/icons/icon-sot.webp) 0 0 no-repeat; }
+.hj { background: url(../img/icons/icon-hj.webp) 0 0 no-repeat; }
+.pots { background: url(../img/icons/icon-pots.webp) 0 0 no-repeat; }
+.rm { background: url(../img/icons/icon-rm.webp) 0 0 no-repeat; }
+.smfa { background: url(../img/icons/icon-smfa.webp) 0 0 no-repeat; }
+.smcotw { background: url(../img/icons/icon-smcotw.webp) 0 0 no-repeat; }
+
+.alt .base { background: url(../img/icons/icon-base-alt.webp) 0 0 no-repeat; }
+.alt .btt { background: url(../img/icons/icon-btt-alt.webp) 0 0 no-repeat; }
+.alt .soa { background: url(../img/icons/icon-soa-alt.webp) 0 0 no-repeat; }
+.alt .sot { background: url(../img/icons/icon-sot-alt.webp) 0 0 no-repeat; }
+.alt .hj { background: url(../img/icons/icon-hj-alt.webp) 0 0 no-repeat; }
+.alt .pots { background: url(../img/icons/icon-pots-alt.webp) 0 0 no-repeat; }
+.alt .rm { background: url(../img/icons/icon-rm-alt.webp) 0 0 no-repeat; }
+.alt .smfa { background: url(../img/icons/icon-smfa-alt.webp) 0 0 no-repeat; }
+.alt .smcotw { background: url(../img/icons/icon-smcotw-alt.webp) 0 0 no-repeat; }
+
+
+.monster {
+  display: block;
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  margin-top: -64px;
+  margin-left: -64px;
+  z-index: 55;
+  cursor: pointer;
+}
+
+.monster:hover {
+  z-index: 60;
+  border-width: 4px;
+}
+
+.monster .vision {
+  position: absolute;
+  display: block;
+  width: 128px;
+  height: 64px;
+  background: url(../img/icons/vision.webp) 0 0 no-repeat;
+  z-index: 41;
+  opacity: 0.7;
+}
+
+.vision.up { top: -32px; left: 0; }
+.vision.down { transform: rotate(180deg); bottom: -32px; left: 0; }
+.vision.left { transform: rotate(-90deg); top: 32px; left: -64px; }
+.vision.right { transform: rotate(90deg); top: 32px; right: -64px; }
+
+.monster .name {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 1px;
+}
+
+.monster .hp {
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  /**
+  top: 0;
+  right: 0;
+  margin: 5px 5px 0 0;
+  **/
+  bottom: 0;
+  right: 0;
+  margin: 0 2px 5px 0;
+  text-align: center;
+  color: #91b43d;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'IM Fell English', serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.monster .atk {
+  display: none;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  bottom: 0;
+  right: 0;
+  margin: 0 2px 5px 0;
+  text-align: center;
+  color: #5187dc;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'IM Fell English', serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.monster0 { border: 3px solid #a817d1; } /** Purple **/
+.monster1 { border: 3px solid #f5ad11; } /** Yellow **/
+.monster2 { border: 3px solid #15d40b; } /** Green **/
+.monster3 { border: 3px solid #fc261e; } /** Red **/
+.monster4 { border: 3px solid #099ded; } /** Blue **/
+.monster4 { border: 3px solid #e3e3e3; } /** Grey **/
+
+.ancientbasilisk { background: url(../img/monsters/ancientbasilisk.webp) 0 0 no-repeat; background-size: contain; }
+.childofdagon { background: url(../img/monsters/childofdagon.webp) 0 0 no-repeat; background-size: contain; }
+.cultist { background: url(../img/monsters/cultist.webp) 0 0 no-repeat; background-size: contain; }
+.deepone { background: url(../img/monsters/deepone.webp) 0 0 no-repeat; background-size: contain; }
+.deeponehybrid { background: url(../img/monsters/deeponehybrid.webp) 0 0 no-repeat; background-size: contain; }
+.dimensionalshambler { background: url(../img/monsters/dimensionalshambler.webp) 0 0 no-repeat; background-size: contain; }
+.featheredserpent { background: url(../img/monsters/featheredserpent.webp) 0 0 no-repeat; background-size: contain; }
+.formlessspawn { background: url(../img/monsters/formlessspawn.webp) 0 0 no-repeat; background-size: contain; }
+.hiredgun { background: url(../img/monsters/hiredgun.webp) 0 0 no-repeat; background-size: contain; }
+.huntingdeepone { background: url(../img/monsters/huntingdeepone.webp) 0 0 no-repeat; background-size: contain; }
+.huntinghorror { background: url(../img/monsters/huntinghorror.webp) 0 0 no-repeat; background-size: contain; }
+.lloigor { background: url(../img/monsters/lloigor.webp) 0 0 no-repeat; background-size: contain; }
+.priestofdagon { background: url(../img/monsters/priestofdagon.webp) 0 0 no-repeat; background-size: contain; }
+.riot { background: url(../img/monsters/riot.webp) 0 0 no-repeat; background-size: contain; }
+.serpentpeople { background: url(../img/monsters/serpentpeople.webp) 0 0 no-repeat; background-size: contain; }
+.skeleton { background: url(../img/monsters/skeleton.webp) 0 0 no-repeat; background-size: contain; }
+.starspawn { background: url(../img/monsters/starspawn.webp) 0 0 no-repeat; background-size: contain; }
+.starvampire { background: url(../img/monsters/starvampire.webp) 0 0 no-repeat; background-size: contain; }
+.templeguardian { background: url(../img/monsters/templeguardian.webp) 0 0 no-repeat; background-size: contain; }
+.thrall { background: url(../img/monsters/thrall.webp) 0 0 no-repeat; background-size: contain; }
+.warlock { background: url(../img/monsters/warlock.webp) 0 0 no-repeat; background-size: contain; }
+
+.messagectn span.action { background: url(../img/icons/icon_action.webp) center center no-repeat; display: inline-block; width: 40px; height: 30px; background-size: contain; margin: -5px -4px -8px -20px }
+#messageBox span.investigation { background: url(../img/icons/icon_investigation.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+#messageBox span.success { background: url(../img/icons/icon_success.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+#messageBox span.strength { background: url(../img/icons/icon_strength.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+#messageBox span.agility { background: url(../img/icons/icon_agility.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+#messageBox span.observation { background: url(../img/icons/icon_observation.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+#messageBox span.lore { background: url(../img/icons/icon_lore.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+#messageBox span.influence { background: url(../img/icons/icon_influence.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+#messageBox span.will { background: url(../img/icons/icon_will.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+
+
+@media (orientation: portrait) {
+
+}

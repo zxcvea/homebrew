@@ -1,0 +1,495 @@
+.btn-enterfs, .btn-exitfs {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  z-index: 9999999;
+}
+
+.btn-enterfs { background: url(../img/interface/btn_expand-alt.webp) 0 0 no-repeat; background-size: contain; }
+.btn-exitfs { background: url(../img/interface/btn_shrink-alt.webp) 0 0 no-repeat; background-size: contain; }
+
+#container {
+  background: #000;
+}
+
+.screen {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.inner {
+  display: block;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background: #000;
+}
+
+.inner .btn {
+  margin-bottom: 20px;
+  font-family: 'EB Garamond', serif;
+  font-weight: bold;
+  color: #fff;
+}
+
+.inner .title {
+  font-family: 'EB Garamond', serif;
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: #BBA46E;
+  margin-bottom: 20px;
+}
+
+.inner textarea {
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+#messageBox {
+  display: block;
+  border: 1px solid #fff;
+  height: 300px;
+  margin-bottom: 20px;
+  padding: 20px;
+  color: #fff;
+  font-family: 'EB Garamond', serif;
+}
+
+#screenIntro .btn-enterfs, #screenIntro .btn-exitfs,
+#screenHome .btn-enterfs, #screenHome .btn-exitfs,
+#screenNewGame .btn-enterfs, #screenNewGame .btn-exitfs {
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  z-index: 700;
+}
+
+
+#btn-tilt {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 70px;
+  width: 70px;
+  height: 70px;
+  background: url(../img/interface/icon_tilt-alt.webp) 0 0 no-repeat;
+  background-size: contain;
+  z-index: 600;
+}
+
+#btn-info {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  background: url(../img/interface/icon_info.webp) 0 0 no-repeat;
+  background-size: contain;
+  z-index: 700;
+}
+
+#btn-home {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 70px;
+  width: 70px;
+  height: 70px;
+  background: url(../img/interface/icon_home-alt.webp) 0 0 no-repeat;
+  background-size: contain;
+  z-index: 600;
+}
+
+#btn-settings {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  background: url(../img/interface/icon_settings-alt.webp) 0 0 no-repeat;
+  background-size: contain;
+  z-index: 600;
+}
+
+#btn-exit-settings {
+  display: block;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: url(../img/interface/btn_close.webp) 0 0 no-repeat;
+  background-size: contain;
+  z-index: 600;
+}
+
+#home, #settingsoverlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 99999;
+  background: #000;
+}
+
+#screenIntro {
+  display: block;
+  background: #000 url(../img/interface/settings.webp) center center no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1024px;
+  height: 576px;
+  transform: translate(-50%, -50%);
+  z-index: 999999;
+  color: #fff;
+  text-align: center;
+}
+
+#disclaimer {
+  font-family: 'EB Garamond', serif;
+  display: block;
+  width: 640px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 120px;
+}
+
+#screenNewGame {
+  display: block;
+  background: #000 url(../img/interface/bg-green.webp) center center no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1024px;
+  height: 576px;
+  transform: translate(-50%, -50%);
+  z-index: 977777;
+  color: #fff;
+  text-align: center;
+}
+
+#splash {
+  display: block;
+  background: url(../img/interface/home.webp) center center no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1024px;
+  height: 576px;
+}
+
+#screenHome {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1024px;
+  height: 576px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 988888;
+}
+
+#splashbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2048px;
+  height: 576px;
+  background: url(../img/interface/homebg.webp) 0 0 no-repeat;
+}
+
+#splashrain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1024px;
+  height: 576px;
+  background-image: url(../img/interface/rain.webp);
+  background-repeat: repeat;
+}
+
+#splash .btn {
+  display: block;
+  position: absolute;
+  width: 270px;
+  height: 55px;
+  background: url(../img/interface/splash-btn.webp) 0 0 no-repeat;
+  color: #fff;
+  text-align: center;
+  line-height: 55px;
+  font-weight: bold;
+}
+
+#splash .btn:hover {
+  text-shadow:
+     1px 1px 0 #b9ee59;
+  background: url(../img/interface/splash-btn.webp) 0 -55px no-repeat;
+}
+
+#screenHome .title {
+  position: absolute;
+  display: block;
+  width: 414px;
+  height: 92px;
+  left: 100px;
+  top: 74px;
+  background-image: url(../img/interface/titlehome.webp);
+  background-size: contain;
+}
+
+.mom2elogo {
+  position: absolute;
+  display: block;
+  width: 174px;
+  height: 75px;
+  left: 45px;
+  top: 455px;
+  background-image: url(../img/interface/mom2elogo.webp);
+  background-size: contain;
+}
+
+#btn-home-newgame {
+  top: 190px;
+  left: 170px;
+}
+
+#btn-home-continue {
+  top: 255px;
+  left: 170px;
+}
+
+#btn-home-settings {
+  top: 255px;
+  left: 170px;
+}
+
+.btn-info {
+  display: block;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/interface/icon_info.webp);
+  background-size: contain;
+}
+
+.btn-home {
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/interface/icon_home-alt.webp);
+  background-size: contain;
+}
+
+.btn-settings {
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 75px;
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/interface/icon_settings-alt.webp);
+  background-size: contain;
+}
+
+#settings {
+  display: block;
+  background: #000 url(../img/interface/bg-grey.webp) center center no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1024px;
+  height: 576px;
+  transform: translate(-50%, -50%);
+  z-index: 999999;
+  color: #fff;
+}
+
+#settings .padding {
+  display: block;
+  padding: 40px 60px;
+}
+
+#settings h2 {
+  font-weight: normal;
+}
+
+#settings label {
+  display: block;
+  float: left;
+  margin: 10px 5px 0 15px;
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+#settings label span {
+  color: #c0aa7b;
+}
+
+.title-newGame {
+  display: block;
+  background: url(../img/interface/title-newgame.webp) center center no-repeat;
+  width: 260px;
+  height: 58px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40px;
+}
+
+#screenNewGame .container {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 130px;
+}
+
+#screenNewGame .fields {
+  display: block;
+  width: 380px;
+  margin-bottom: 20px;
+}
+
+#screenNewGame .textBox {
+  display: block;
+  float: left;
+  width: 270px;
+  height: 55px;
+  background: url(../img/interface/splash-btn.webp) 0 0 no-repeat;
+  color: #fff;
+  text-align: center;
+  line-height: 55px;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+#screenNewGame .label {
+  display: block;
+  position: absolute;
+  width: 169px;
+  height: 22px;
+  background: url(../img/interface/textbox.webp) 0 0 no-repeat;
+  color: #b29270;
+  text-align: center;
+  font-size: 15px;
+  line-height: 23px;
+  margin-top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#screenNewGame .btn-scroll {
+  display: block;
+  width: 50px;
+  height: 38px;
+  float: left;
+  margin-top: 9px;
+}
+.btn-arrow-left { background: url(../img/interface/scrollarrows.webp) 0 bottom no-repeat; }
+.btn-arrow-right { background: url(../img/interface/scrollarrows.webp) -50px bottom no-repeat; }
+.btn-arrow-left:hover, .btn-arrow-left:active { background: url(../img/interface/scrollarrows.webp) 0 top no-repeat; }
+.btn-arrow-right:hover, .btn-arrow-right:active { background: url(../img/interface/scrollarrows.webp) -50px top no-repeat; }
+
+.messagectn {
+  display: block;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 512px;
+  height: auto;
+  border: 1px solid #fff;
+  z-index: 9999;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.messagectn .padding {
+  padding: 20px 20px;
+}
+
+.messagectn p { margin-top: 0; }
+.messagectn p:last-child {
+  margin-bottom: 0;
+}
+.messagectn ul { text-align: left; }
+
+#messageBox span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  margin-bottom: -4px;
+}
+
+.messagectn #btn-close {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: url(../img/interface/btn_close.webp) 0 0 no-repeat;
+  background-size: contain;
+}
+
+.messagectn #btn-cta {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: auto;
+  height: 20px;
+  padding: 10px 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.messagectn #btn-cta2 {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -50px;
+  width: auto;
+  height: 20px;
+  padding: 10px 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#btn-start, #btn-play, #btn-newGame-start {
+  display: block;
+  position: absolute;
+  font-size: 36px;
+  color: #fff;
+  width: 250px;
+  height: 95px;
+  line-height: 95px;
+  background: url(../img/interface/btn-start.webp) 0 0 no-repeat;
+  z-index: 999;
+  text-align: center;
+}
