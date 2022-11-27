@@ -489,11 +489,6 @@ select {
   color: #a2a6af;
 }
 
-.doc-section {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
 .doc-section .section-title {
   font-size: 26px;
   margin-top: 0;
@@ -1527,7 +1522,11 @@ h1, h2, h3, .h2e, .cfont, .chead {
 
 .h2e { font-weight: bold; }
 
-h1 { font-weight: bold; padding: 10px 0; border-top: 1px solid #494d55; border-bottom: 1px solid #494d55; margin: 0 10px; text-align: center; }
+h1 { font-weight: bold; padding: 10px 0; border-top: 1px solid #494d55; border-bottom: 1px solid #494d55; margin: 0; text-align: center; }
+
+p.no-margin {
+  margin: 0;
+}
 
 @media only screen and (min-width: 320px) {
 
@@ -1544,6 +1543,9 @@ h1 { font-weight: bold; padding: 10px 0; border-top: 1px solid #494d55; border-b
   }
 }
 
+ol, ul {
+  padding-left: 1.25rem;
+}
 
 .accordion-button {
   font-size: inherit;
@@ -1556,4 +1558,13 @@ h1 { font-weight: bold; padding: 10px 0; border-top: 1px solid #494d55; border-b
 
 .accordion-item {
   border: none;
+}
+
+.form-check-input, .form-check-label {
+  cursor: pointer;
+}
+
+.no-bullet {
+  list-style-type: none;
+  padding: 0;
 }
