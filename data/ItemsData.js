@@ -10,7 +10,7 @@ const BaseItems = {
     { Type: Type.HeavyWeapon, Name: `2 x 4`, Objects: [ `a large wooden plank`, `a heavy wooden plank`, `a wooden plank`, ] },
     // (Tome) Roll 1 additional die while resolving a lore (the little book) test.
     { Type: Type.Equipment, Name: `Arcane Manuscript`, Objects: [ `an old manuscript`, `an ancient manuscript`, ] },
-    // (Heavy Weapon) You may suffer 2 facedown horror to convert all focus(Magnifying glasses) into successes (Stars) while attacing with this card
+    // (Heavy Weapon) You may suffer 2 facedown horror to convert all focus(Magnifying glasses) into {successes} (Stars) while attacing with this card
     { Type: Type.HeavyWeapon, Name: `Axe`, Objects: [ `an axe`, `a rusty axe`, `a hatchet`, `a rusty hatchet`, `a fire axe` ] },
     // (Equipment) ACTION: Discard up to 2 facedown damage. Then discard this card
     { Type: Type.Equipment, Name: `Bandages`, Objects: [ `some bandages`, `bandages`, `a box of bandages`, ] },
@@ -18,7 +18,7 @@ const BaseItems = {
     { Type: Type.Equipment, Name: `Brass knuckles`, Objects: [ `some brass knuckles`, `a set of brass knuckles`, ] },
     // (Light source) ACTION: Another investigator within range becomes dazed.
     { Type: Type.LightSource, Name: `Bullseye lantern`, Objects: [ `a lantern`, `a bright lantern`, `a lit lantern`, ] },
-    // (Light Source) You may discard this card to convert all focuses (magnifying glasses) to successes (stars) while casting a spell
+    // (Light Source) You may discard this card to convert all focuses (magnifying glasses) to {successes} (stars) while casting a spell
     { Type: Type.LightSource, Name: `Candles`, Objects: [ `some candles`, `a box of candles`, ] },
     // (Firearm) You cannot attack a monster in your space with this card
     { Type: Type.Firearm, Name: `Carbine Rifle`, Objects: [ `a rifle`, `a carbine rifle`, `an automatic rifle`, ] },
@@ -40,7 +40,7 @@ const BaseItems = {
     { Type: Type.Equipment, Name: `Holy Cross`, Objects: [ `a holy cross`, `a wooden cross`, `a gold cross`, ] },
     // (Equipment) ACTION: Discard 1 horror and become focused. Then discard this card.
     { Type: Type.Equipment, Name: `Holy Water`, Objects: [ `some holy water`, `a small bottle of holy water`, `a cup filled with holy water`, ] },
-    // (Light Source) You may discard this card to convert focuses (magnifying glasses) to successes (stars) while attacking unarmed.
+    // (Light Source) You may discard this card to convert focuses (magnifying glasses) to {successes} (stars) while attacking unarmed.
     { Type: Type.LightSource, Name: `Kerosene Lantern`, Objects: [ `a kerosene lantern`, `an old lantern`, `a lantern`, ] },
     // (Tome) ACTION: You or another investigator within range may discard 1 facedown Horror
     { Type: Type.Equipment, Name: `King James Bible`, Objects: [ `an old bible`, `a bible`, ] },
@@ -56,7 +56,7 @@ const BaseItems = {
     { Type: Type.BladedWeapon, Name: `Machete`, Objects: [ `a machete`, `a bloodied machete`, `a rusty machete`, ] },
     // (Equipment) Roll 1 additional die while resolving an Observation (Eye) test.
     { Type: Type.Equipment, Name: `Magnifying Glass`, Objects: [ `a magnifying glass`, `an old magnifying glass`, ] },
-    // (Bladed Weapon) You may suffer 2 facedown Horror to convert all focuses (magnifying Glass) to successes (Star) while attacking with this card.
+    // (Bladed Weapon) You may suffer 2 facedown Horror to convert all focuses (magnifying Glass) to {successes} (Star) while attacking with this card.
     { Type: Type.BladedWeapon, Name: `Meat Cleaver`, Objects: [ `a meat cleaver`, `a kitchen meat cleaver`, `a bloodied meat cleaver`, `a rusty meat cleaver` ] },
     // (Equipment) ACTION: You or another investigator within range may discard 1 facedown damage.
     { Type: Type.Equipment, Name: `Medical Textbook`, Objects: [ `a medical textbook`, `an old medical book`, `a book on medicine`, ] },
@@ -72,7 +72,7 @@ const BaseItems = {
     { Type: Type.Firearm, Name: `Shotgun`, Objects: [ `a shotgun`, `a loaded shotgun`, ] },
     // (Heavy Weapon) 
     { Type: Type.HeavyWeapon, Name: `Shovel`, Objects: [ `a shovel`, `a rusty shovel`, `an garden shovel`, ] },
-    // (Heavy Weapon) You may suffer two facedown damage to convert all Focuses (Magnifying glasses) to stars (Successes) while attacking with this card.
+    // (Heavy Weapon) You may suffer two facedown damage to convert all Focuses (Magnifying glasses) to stars ({successes}) while attacking with this card.
     { Type: Type.HeavyWeapon, Name: `Sledgehammer`, Objects: [ `a sledgehammer`, `an heavy sledgehammer`,  ] },
     // (Firearm) Once per round, you may reroll all of your dice while attacking with this card.
     { Type: Type.Firearm, Name: `Tommy Gun`, Objects: [ `a tommy gun`, `a loaded tommy gun`, ] },

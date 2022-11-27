@@ -534,8 +534,7 @@ select {
 }
 
 .section-block {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 20px;
 }
 
 .section-block .block-title {
@@ -1499,6 +1498,13 @@ header {
 .influence { background-image: url(../img/icons/text-influence.webp); }
 .will { background-image: url(../img/icons/text-will.webp); }
 
+.base { background-image: url(../img/icons/icon-base.webp); background-size: contain; }
+.btt { background-image: url(../img/icons/icon-btt.webp); background-size: contain;}
+.hj { background-image: url(../img/icons/icon-hj.webp); background-size: contain;}
+.soa { background-image: url(../img/icons/icon-soa.webp); background-size: contain;}
+.sot { background-image: url(../img/icons/icon-sot.webp); background-size: contain;}
+.pots { background-image: url(../img/icons/icon-pots.webp); background-size: contain;}
+
 .clear { clear: both; height: 0; }
 
 .image {
@@ -1519,6 +1525,8 @@ h1, h2, h3, .h2e, .cfont, .chead {
 
 .h2e { font-weight: bold; }
 
+.h2e { font-weight: bold; }
+
 h1 { font-weight: bold; padding: 10px 0; border-top: 1px solid #494d55; border-bottom: 1px solid #494d55; margin: 0 10px; text-align: center; }
 
 @media only screen and (min-width: 320px) {
@@ -1534,4 +1542,18 @@ h1 { font-weight: bold; padding: 10px 0; border-top: 1px solid #494d55; border-b
   .fs-4 {
     font-size: 1.3rem!important;
   }
+}
+
+
+.accordion-button {
+  font-size: inherit;
+}
+
+.accordion-button:not(.collapsed) {
+  color: inherit;
+  background-color: #fff;
+}
+
+.accordion-item {
+  border: none;
 }

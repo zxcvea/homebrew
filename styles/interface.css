@@ -45,6 +45,7 @@
   letter-spacing: 1px;
   color: #BBA46E;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .inner textarea {
@@ -492,4 +493,31 @@
   background: url(../img/interface/btn-start.webp) 0 0 no-repeat;
   z-index: 999;
   text-align: center;
+}
+
+.action { background: url(../img/icons/icon_action.webp) center center no-repeat; display: inline-block; width: 40px; height: 30px; background-size: contain; margin: -5px -4px -8px -20px }
+.investigation { background: url(../img/icons/icon_investigation.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+.success { background: url(../img/icons/icon_success.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+.strength { background: url(../img/icons/icon_strength.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+.agility { background: url(../img/icons/icon_agility.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+.observation { background: url(../img/icons/icon_observation.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+.influence { background: url(../img/icons/icon_influence.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+.will { background: url(../img/icons/icon_will.webp) center center no-repeat; display: inline-block; width: 30px; height: 24px; background-size: contain; }
+
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #590000;
+  --bs-btn-border-color: #590000;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #7F0000;
+  --bs-btn-hover-border-color: #7F0000;
+  --bs-btn-focus-shadow-rgb: 49,132,253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #7F0000;
+  --bs-btn-active-border-color: #7F0000;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #590000;
+  --bs-btn-disabled-border-color: #590000;
 }

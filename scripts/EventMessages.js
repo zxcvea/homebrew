@@ -103,6 +103,10 @@ const EventMessages = {
     const bonusDamage = EventMessages.SetNegativeCondition(GameText.Actions.Attack.SuccessBonusDamageTextOptions);
     return `${GameText.Actions.Attack.SuccessGuardianText}${bonusDamage}`;
   },
+  
+  GetAttackFailText: function() {
+    return GameText.Actions.Attack.FailTextOptions.GetRandom();
+  },
 
   GetHealTestText: function() {
     return GameText.Actions.Heal.Text;
@@ -120,12 +124,20 @@ const EventMessages = {
     return GameText.Actions.Steal.SuccessText;
   },
 
+  GetStealFailText: function() {
+    return GameText.Actions.Steal.FailTextOptions.GetRandom();
+  },
+
   GetDisarmTrapTestText: function() {
     return GameText.Actions.Disarm.Tests.GetRandom();
   },
 
   GetDisarmTrapSuccessText: function() {
     return GameText.Actions.Disarm.SuccessText;
+  },
+
+  GetDisarmTrapFailText: function() {
+    return GameText.Actions.Disarm.FailTextOptions.GetRandom();
   },
 
   GetUnlockDoorInfoText: function() {
@@ -136,22 +148,40 @@ const EventMessages = {
     return GameText.Actions.Unlock.SuccessTextOptions.GetRandom().replace(/\{key\}/g, `<strong>${GameData.KEY_ITEM}</strong>`);
   },
 
+  GetSummonCthulhuTestText: function() {
+    return GameText.Actions.SummonCthulhu.Tests.GetRandom();
+  },
+
+  GetSummonCthulhuSuccessText: function() {
+    return [ GameText.Actions.SummonCthulhu.SuccessTextOptions.GetRandom(), GameText.Actions.SummonCthulhu.EndGameText ];
+  },
+
+  GetSummonCthulhuFailText: function() {
+    return GameText.Actions.SummonCthulhu.FailTextOptions.GetRandom();
+  },
+
   GetPlaceFireTrapText: function() {
     return GameText.Actions.Traps.FireTextOptions.GetRandom();
   },
 
-  GetPlaceWaterTrapText: function() {
-    return GameText.Actions.Traps.WaterTextOptions.GetRandom();
+  GetPlaceDarknessTrapText: function() {
+    return GameText.Actions.Traps.DarknessTextOptions.GetRandom();
   },
 
   GetPlaceTrapdoorTrapText: function() {
     return GameText.Actions.Traps.TrapdoorTextOptions.GetRandom();
   },
 
+  GetPlaceWaterTrapText: function() {
+    return GameText.Actions.Traps.WaterTextOptions.GetRandom();
+  },
+
   GetMythosEventText: function() {
-    const damageText = GameText.Mythos.MonsterDamageText.replace(/\{damage\}/g, `${GameText.Mythos.DamageOptions.GetRandom()} ${GameText.Damage.DamageNegates.GetRandom()}`);
-    const horrorText = GameText.Mythos.MonsterHorrorText.replace(/\{horror\}/g, `${GameText.Damage.HorrorTextOptions.GetRandom()} ${GameText.Damage.HorrorNegates.GetRandom()}`);
-    return [ damageText, horrorText ];
+    const damageText = EventMessages.SetNegativeCondition(GameText.Mythos.DamageOptions);
+    const horrorText = EventMessages.SetNegativeCondition(GameText.Damage.HorrorTextOptions);
+    const monsterDamageText = GameText.Mythos.MonsterDamageText.replace(/\{damage\}/g, `${damageText} ${GameText.Damage.DamageNegates.GetRandom()}`);
+    const monsterHorrorText = GameText.Mythos.MonsterHorrorText.replace(/\{horror\}/g, `${horrorText} ${GameText.Damage.HorrorNegates.GetRandom()}`);
+    return [ monsterDamageText, monsterHorrorText ];
   },
 
 };

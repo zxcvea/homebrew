@@ -15,6 +15,7 @@ const Text = {
     text = text.replace(/\{will\}/g, `<span class="will"></span>`);
     text = text.replace(/\{action\}/g, `<span class="action"></span>`);
     text = text.replace(/\{success\}/g, `<span class="success"></span>`);
+    text = text.replace(/\{successes\}/g, `<span class="success"></span>`);
     return Capitalize(text);
   },
 
@@ -32,6 +33,9 @@ const Text = {
     text = text.replace(/\(/g, ``);
     text = text.replace(/\)/g, ``);
     text = text.replace(/negates/g, `to negate`);
+    text = text.replace(/\:5/g, ``);
+    text = text.replace(/\:4/g, ``);
+    text = text.replace(/\:3/g, ``);
     text = text.replace(/\:2/g, ``);
     text = text.replace(/\:1/g, ``);
     text = text.replace(/\{base\}/g, ``);
@@ -50,6 +54,7 @@ const Text = {
     text = text.replace(/\{will\}/g, `Test your will `);
     text = text.replace(/\{action\}/g, `Action `);
     text = text.replace(/\{success\}/g, ``);
+    text = text.replace(/\{successes\}/g, `successes`);
     text = text.replace(/\.18 Derringer/g, `eighteen derringer`);
     text = text.replace(/\.41 Derringer/g, `forty one derringer`);
     text = text.replace(/38 Revolver/g, `thirty eight revolver`);

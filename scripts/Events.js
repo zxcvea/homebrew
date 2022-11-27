@@ -54,6 +54,10 @@ const Events = {
     MessageBox.DisplaySpeak(EventMessages.GetAttackGuardianSuccessText(), null, Events.PlayAttackGuardianSound());
   },
 
+  GetAttackFail: function() {
+    MessageBox.DisplaySpeak(EventMessages.GetAttackFailText());
+  },
+
   PlayAttackGuardianSound: function() {
     Sounds.PlaySound(`monsters/templeguardian`);
   },
@@ -74,12 +78,20 @@ const Events = {
     MessageBox.DisplaySpeak(EventMessages.GetStealSuccessText());
   },
 
+  GetStealFail: function() {
+    MessageBox.DisplaySpeak(EventMessages.GetStealFailText());
+  },
+
   GetDisarmTrapTest: function() {
     MessageBox.DisplaySpeak(EventMessages.GetDisarmTrapTestText());
   },
 
   GetDisarmTrapSuccess: function() {
     MessageBox.DisplaySpeak(EventMessages.GetDisarmTrapSuccessText());
+  },
+
+  GetDisarmTrapFail: function() {
+    MessageBox.DisplaySpeak(EventMessages.GetDisarmTrapFailText());
   },
 
   GetUnlockDoorInfo: function() {
@@ -91,19 +103,36 @@ const Events = {
     MessageBox.DisplaySpeak(EventMessages.GetUnlockDoorSuccessText());
   },
 
+  GetSummonCthulhuTest: function() {
+    MessageBox.DisplaySpeak(EventMessages.GetSummonCthulhuTestText());
+  },
+
+  GetSummonCthulhuSuccess: function() {
+    MessageBox.DisplaySpeak(EventMessages.GetSummonCthulhuSuccessText());
+  },
+
+  GetSummonCthulhuFail: function() {
+    MessageBox.DisplaySpeak(EventMessages.GetSummonCthulhuFailText());
+  },
+
   GetPlaceFireTrap: function() {
     Sounds.PlaySound('fire');
     MessageBox.DisplaySpeak(EventMessages.GetPlaceFireTrapText());
   },
 
-  GetPlaceWaterTrap: function() {
+  GetPlaceDarknessTrap: function() {
     Sounds.PlaySound('water');
-    MessageBox.DisplaySpeak(EventMessages.GetPlaceWaterTrapText());
+    MessageBox.DisplaySpeak(EventMessages.GetPlaceDarknessTrapText());
   },
 
   GetPlaceTrapdoorTrap: function() {
     Sounds.PlaySound('trapdoor');
     MessageBox.DisplaySpeak(EventMessages.GetPlaceTrapdoorTrapText());
+  },
+
+  GetPlaceWaterTrap: function() {
+    Sounds.PlaySound('water');
+    MessageBox.DisplaySpeak(EventMessages.GetPlaceWaterTrapText());
   },
 
   GetMythosEvent: function() {
