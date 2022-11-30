@@ -1,6 +1,23 @@
 const Events = {
+
+  DisplayProgress: function() {
+    let message = '';
+    message += `<p><strong>Relics Collected</strong>: ${GameData.RELICS_COLLECTED}</p>`;
+    if (GameData.ITEMS_COLLECTED.size() > 0) {
+      for(let i = 0; i < GameData.ITEMS_COLLECTED.size(); i++) {
+        let type = GameData.ITEMS_COLLECTED[i].Type == Type.Relic ? `item (<strong>relic</strong>)` : `item`;
+        type = GameData.ITEMS_COLLECTED[i].Type == Type.Key ? `item (<strong>key</strong>)` : type;
+        message += `<p>Player found the <em>${GameData.ITEMS_COLLECTED[i].Name}</em> ${type}</p>`;
+      }
+    }
+    MessageBox.Display(message);
+  },
+
   GetStartingItems: function() {
     MessageBox.Display(EventMessages.GetStartingItemsText());
+    if (!Data.HasSavedGame()) {
+      Data.SaveGame();
+    }
   },
 
   GetSearchTest: function() {
@@ -20,6 +37,7 @@ const Events = {
       MessageBox.DisplaySpeak(EventMessages.GetSearchSuccessItemText());
     }
     GameData.ITEMS_COLLECTED_COUNT += 1;
+    Data.SaveGame();
   },
 
   GetAttackWeaponTest: function() {
@@ -133,6 +151,21 @@ const Events = {
   GetPlaceWaterTrap: function() {
     Sounds.PlaySound('water');
     MessageBox.DisplaySpeak(EventMessages.GetPlaceWaterTrapText());
+  },
+
+  GetPlaceRiftTrap: function() {
+    Sounds.PlaySound('rift');
+    MessageBox.DisplaySpeak(EventMessages.GetPlaceRiftTrapTrapText());
+  },
+
+  GetPlaceOvergrowthTrap: function() {
+    Sounds.PlaySound('overgrowth');
+    MessageBox.DisplaySpeak(EventMessages.GetPlaceOvergrowthTrapText());
+  },
+
+  GetPlaceRubbleTrap: function() {
+    Sounds.PlaySound('rubble');
+    MessageBox.DisplaySpeak(EventMessages.GetPlaceRubbleTrapText());
   },
 
   GetMythosEvent: function() {

@@ -29,77 +29,61 @@ let NegativeConditionsCollected = [];
 
 let MonstersSpawned = [];
 
-const ItemsType = {
-  Common: {
-    Name: `Common Items`,
-    Items: CommonItems,
-  },
-  Spell: {
-    Name: `Spells`,
-    Items: SpellItems,
-  },
-};
-
 const Items = {
 
   NUMBER_OF_CONDITION_CARDS: 5,
   NUMBER_OF_SPELL_CARDS: 5,
 
   Compile: function () {
-    CommonItems = BaseItems.CommonItems;
-    SpellItems = BaseItems.Spells;
+    StartingItems = [];
+    CommonItemsGenerated = [];
+    CommonItemsCollected = [];
+
+    CommonItems = BaseItems.Items;
     KeyItems = BaseItems.Keys;
-    EvidenceItems = BaseItems.Evidence;
-    EquipmentItems = BaseItems.Equipment;
     PositiveConditions = BaseItems.PositiveConditions;
     NegativeConditions = BaseItems.NegativeConditions;
 
-    Items.AddExpansions('btt');
-    Items.AddExpansions('soa');
-    Items.AddExpansions('hj');
+    if (Settings.BTT_ENABLED) {
+      Items.AddExpansions('btt');
+    }
+    if (Settings.HJ_ENABLED) {
+      Items.AddExpansions('hj');
+    }
+    if (Settings.SOA_ENABLED) {
+      Items.AddExpansions('soa');
+    }
+    if (Settings.SOT_ENABLED) {
+      Items.AddExpansions('sot');
+    }
+    if (Settings.POTS_ENABLED) {
+      Items.AddExpansions('pots');
+    }
 
-    RelicItems = SoaItems.Relic.filter(x => x.Name != 'Bone Pipes');
-    AttackingSpells = [
-      { Type: Type.Spell, Name: `Azure Flame`, Objects: [ `a spell`, ], },
-      { Type: Type.Spell, Name: `Shriveling`, Objects: [ `a spell`, ], },
-      { Type: Type.Spell, Name: `Storm of Spirits`, Objects: [ `a spell`, ], },
-      { Type: Type.Spell, Name: `Wither`, Objects: [ `a spell`, ], },
-      { Type: Type.Spell, Name: `Wrack`, Objects: [ `a spell`, ], },
-    ];
-
-    Items.GenerateStartingItems();
+    Items.GenerateRelicItems();
     Items.GenerateItems();
+    Items.GenerateStartingItems();
   },
 
   AddExpansions: function(ref) {
     if (ref == 'btt') {
-      CommonItems.push(...BttItems.CommonItems);
-      EvidenceItems.push(...BttItems.Evidence);
-      SpellItems.push(...BttItems.Spells);
+      CommonItems.push(...BttItems.Items);
       NegativeConditions.push(...BttItems.NegativeConditions);
     }
     if (ref == 'soa') {
-      CommonItems.push(...SoaItems.CommonItems);
-      EvidenceItems.push(...SoaItems.Evidence);
-      SpellItems.push(...SoaItems.Spells);
+      CommonItems.push(...SoaItems.Items);
       PositiveConditions.push(...SoaItems.PositiveConditions);
     }
     if (ref == 'sot') {
-      CommonItems.push(...SotItems.CommonItems);
-      EvidenceItems.push(...SotItems.Evidence);
-      SpellItems.push(...SotItems.Spells);
+      CommonItems.push(...SotItems.Items);
       PositiveConditions.push(...SotItems.NegativeConditions);
     }
     if (ref == 'hj') {
-      CommonItems.push(...HjItems.CommonItems);
-      EvidenceItems.push(...HjItems.Evidence);
-      SpellItems.push(...HjItems.Spells);
+      CommonItems.push(...HjItems.Items);
       NegativeConditions.push(...HjItems.NegativeConditions);
     }
     if (ref == 'pots') {
-      CommonItems.push(...PotsItems.CommonItems);
-      EvidenceItems.push(...PotsItems.Evidence);
-      SpellItems.push(...PotsItems.Spells);
+      CommonItems.push(...PotsItems.Items);
       PositiveConditions.push(...PotsItems.PositiveConditions);
       NegativeConditions.push(...PotsItems.NegativeConditions);
     }
@@ -151,72 +135,69 @@ const Items = {
     }
   },
 
+  SetItemsFromGameData: function() {
+    StartingItems = GameData.STARTING_ITEMS;
+    CommonItemsGenerated = GameData.ITEMS_GENERATED;
+    CommonItemsCollected = GameData.ITEMS_COLLECTED;
+  },
+
   GetCommonItem: function(index) {
-    return CommonItemsGenerated[index];
+    return GameData.ITEMS_GENERATED[index];
+  },
+
+  GenerateRelicItems: function() {
+    RelicItems = Settings.POTS_ENABLED ? PotsItems.Relics : BaseItems.Relics;
+    RelicItems = (Settings.SOA_ENABLED) ? SoaItems.Relics : RelicItems;
+    GameData.RELICS_ITEMS = RelicItems;
   },
 
   GenerateStartingItems: function() {
-    for (let i = 0; i < 4; i++) {
-      const weapon = Items.GetRandomItem(Type.Firearm, Type.HeavyWeapon, Type.BladedWeapon);
+    for (let i = 0; i < 3; i++) {
+      const weapon = Items.GetRandomItem(Type.MeleeWeapon);
       StartingItems.push(weapon);
     }
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
+      const weapon = Items.GetRandomItem(Type.Firearm);
+      StartingItems.push(weapon);
+    }
+    for (let i = 0; i < 4; i++) {
       const equipment = Items.GetRandomItem(Type.Equipment);
       StartingItems.push(equipment);
     }
-    for (let i = 0; i < 4; i++) {
-      const spell = Items.GetRandomAttackingSpell();
+    for (let i = 0; i < 2; i++) {
+      const spell = Items.GetRandomItem(Type.Spell);
       StartingItems.push(spell);
     }
+    GameData.STARTING_ITEMS = StartingItems;
+    GameData.ITEMS_GENERATED = CommonItemsGenerated.filter(x => !StartingItems.some(y => x == y));
   },
 
   GenerateItems: function() {
-    const count = 20;
-    let skillCount = 0;
-    let lightSourcesCount = 0;
-    for (let i = 0; i < count; i++) {
-      if (i % 3 == 1) {
-        Items.GetRandomItem(Type.Firearm, Type.HeavyWeapon, Type.BladedWeapon);
-      }
-      if (i % 3 == 2) {
-        Items.GetRandomItem(Type.Equipment);
-      }
-      if (i % 3 == 0) {
-        if (GameData.HAZARD_DARKNESS_ENABLED && lightSourcesCount < 2) {
-          Items.GetRandomItem(Type.LightSource);
-          lightSourcesCount += 1;
-        } else if (GameData.SOA_ENABLED && skillCount < 2) {
-          Items.GetRandomItem(Type.SkillImprovement);
-          skillCount += 1;
-        } else {
-          Items.GetRandomItem(Type.Equipment);
-        }
-      }
+    for (let i = 0; i < 2; i++) {
+      Items.GetRandomItem(Type.MeleeWeaponSearch);
     }
-
+    for (let i = 0; i < 2; i++) {
+      Items.GetRandomItem(Type.Firearm);
+    }
+    for (let i = 0; i < 1; i++) {
+      Items.GetRandomItem(Type.FirearmSpecial);
+    }
+    for (let i = 0; i < 1; i++) {
+      Items.GetRandomItem(Type.EquipmentSpecial);
+    }
     for (let i = 0; i < 4; i++) {
-      const spell = Items.GetRandomAttackingSpell();
-      CommonItemsGenerated.push(spell);
+      Items.GetRandomItem(Type.Equipment);
     }
-
-    if (GameData.HAZARD_FIRE_ENABLED) {
-      CommonItemsGenerated.push(CommonItems.filter(x => x.Name == Item.FireExtinguisher)[0]); 
+    for (let i = 0; i < 1; i++) {
+      Items.GetRandomItem(Random.CoinFlip() ? Type.SpellSpecial : Type.Spell);
     }
-    if (GameData.HJ_ENABLED && GameData.HAZARD_WATER_ENABLED) {
-      const equipment = CommonItems.filter(x => x.Type == Type.WaterEquipment);
-      CommonItemsGenerated.push(...equipment); 
-    } else if (GameData.HJ_ENABLED && GameData.HAZARD_RIFT_ENABLED) {
-      const equipment = CommonItems.filter(x => x.Type == Type.RiftEquipment);
-      CommonItemsGenerated.push(...equipment); 
-    } else if (GameData.POTS_ENABLED && GameData.HAZARD_OVERGROWTH_ENABLED) {
-      const equipment = CommonItems.filter(x => x.Type == Type.OvergrowthEquipment);
-      CommonItemsGenerated.push(...equipment); 
-    } else if (GameData.POTS_ENABLED && GameData.HAZARD_RUBBLE_ENABLED) {
-      const equipment = CommonItems.filter(x => x.Type == Type.RubbleEquipment);
-      CommonItemsGenerated.push(...equipment); 
+    for (let i = 0; i < 1; i++) {
+      Items.GetRandomItem(Type.SpellSpecial);
     }
 
     CommonItemsGenerated.shuffle();
+
+    GameData.ITEMS_GENERATED = CommonItemsGenerated;
   },
 
   GetRandomItem: function(type, type2 = null, type3 = null) {
@@ -231,7 +212,7 @@ const Items = {
     if (generatedItems.size() > 0 && generatedItems.some(x => x === item) || StartingItems.some(x => x === item)) {
       return Items.GetRandomItem(type, type2, type3);
     } 
-    CommonItemsGenerated.push(item);
+    CommonItemsGenerated.push(item)
     return item;
   },
 

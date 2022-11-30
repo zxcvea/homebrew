@@ -6,6 +6,9 @@ $(document).ready(function() {
 const App = {
 
   DEBUG: false,
+
+  FULLSCREEN: false,
+
   VOICE_ENABLED: true,
   SOUND_ENABLED: true,
   SOUND_CLICK_ENABLED: true,
@@ -15,6 +18,10 @@ const App = {
   TRACK_NUMBER: 0,
 
   IS_HOME_SCREEN: true,
+  MAIN_SCREEN: 'StartScreen',
+  PREVIOUS_SCREEN: ``,
+
+  GAME_STARTED: false,
 
   DEFAULT_WIDTH: 1280,
   DEFAULT_HEIGHT: 960,
@@ -27,16 +34,27 @@ const App = {
   },
 
   Speak: function(message, callbackFunction) {
-    if (App.VOICE_ENABLED) {
-      if (callbackFunction !== undefined) {
-        responsiveVoice.speak(message, 'UK English Male', {onend: callbackFunction});
-      } else {
-        responsiveVoice.speak(message, 'UK English Male');
-      }
+    responsiveVoice.cancel();
+    if (Settings.VOICE_ENABLED) {
+      responsiveVoice.speak(message, 'UK English Male');
     }
   },
 
-  NewGame: function() {
+  EndGame: function() {
+    App.GAME_STARTED = false;
+  },
+
+  SetGameSettings: function() {
+    GameData.BTT_ENABLED = Settings.BTT_ENABLED;
+    GameData.HJ_ENABLED = Settings.HJ_ENABLED;
+    GameData.SOA_ENABLED = Settings.SOA_ENABLED;
+    GameData.SOT_ENABLED = Settings.SOT_ENABLED;
+    GameData.POTS_ENABLED = Settings.POTS_ENABLED;
+  },
+
+  CreateNewGame: function() {
+    App.GAME_STARTED = true;
+    App.SetGameSettings();
     Items.Compile();
     GameData.KEY_ITEM = KeyItems.GetRandom();
     const tokens = Random.Numbers(12).slice(0, 5);
@@ -44,10 +62,15 @@ const App = {
     GameData.KEY_TOKEN_ID = tokens[4];
   },
 
+  NewGame: function() {
+    if (Data.Reset()) {
+      App.CreateNewGame();
+    }
+  },
+
   Run: function() {
-    App.NewGame();
     App.CreateContainer();
     Interface.Init();
-  }
+  },
 
 };

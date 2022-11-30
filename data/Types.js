@@ -18,6 +18,11 @@ const Type = {
   Unused: `Unused`,
   Monster: `Monster`,
   Key: `Key`,
+  MeleeWeapon: `Melee Weapon`,
+  MeleeWeaponSearch: `Melee Weapon Search`,
+  FirearmSpecial: `Firearm Special`,
+  EquipmentSpecial: `Equipment Special`,
+  SpellSpecial: `Spell Special`,
 };
 
 const Item = {

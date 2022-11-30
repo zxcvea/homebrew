@@ -23,7 +23,7 @@ const EventMessages = {
     if (Random.Matches(4)) {
       let damageText = EventMessages.SetNegativeCondition(GameText.Damage.DamageTextOptions);
       let horrorText = EventMessages.SetNegativeCondition(GameText.Damage.HorrorTextOptions);
-      text = GameText.Tests.TrapTextOptions.GetRandom();
+      text = GameText.Actions.Search.TrapTextOptions.GetRandom();
       text = text.replace(/\{damage\}/g, `${damageText} ${GameText.Damage.DamageNegates.GetRandom()}`)
         .replace(/\{horror\}/g, `${horrorText} ${GameText.Damage.HorrorNegates.GetRandom()}`);
     }
@@ -32,8 +32,8 @@ const EventMessages = {
 
   GetStartingItemsText: function() {
     let itemsText = '';
-    for (let i = 0; i < StartingItems.length; i++) {
-      itemsText += `<strong>${StartingItems[i].Name}</strong><br />`;
+    for (let i = 0; i < GameData.STARTING_ITEMS.length; i++) {
+      itemsText += `<strong>${GameData.STARTING_ITEMS[i].Name}</strong><br />`;
     }
     return `${itemsText}`;
   },
@@ -55,7 +55,7 @@ const EventMessages = {
   },
 
   GetSearchSuccessRelicText: function() {
-    const relicItem = RelicItems[GameData.RELICS_COLLECTED];
+    const relicItem = GameData.RELICS_ITEMS[GameData.RELICS_COLLECTED];
     const foundText = GameText.Actions.Search.ItemFoundText.replace(`{itemObject}`, `${relicItem.Objects.GetRandom()}`);
     let rewardText = EventMessages.SetPositiveCondition(GameText.Actions.Search.RelicRewardTextOptions);
     rewardText = rewardText.replace(/\{itemName\}/g, `<strong>${relicItem.Name}</strong>`);
@@ -73,7 +73,7 @@ const EventMessages = {
   },
 
   GetAttackSpellTestText: function() {
-    return GameText.Actions.Attack.SpellText;
+    return GameText.Actions.Attack.SpellTests;
   },
 
   GetAttackFistTestText: function() {
@@ -174,6 +174,18 @@ const EventMessages = {
 
   GetPlaceWaterTrapText: function() {
     return GameText.Actions.Traps.WaterTextOptions.GetRandom();
+  },
+
+  GetPlaceRiftTrapTrapText: function() {
+    return GameText.Actions.Traps.RiftTextOptions.GetRandom();
+  },
+
+  GetPlaceOvergrowthTrapText: function() {
+    return GameText.Actions.Traps.OvergrowthTextOptions.GetRandom();
+  },
+
+  GetPlaceRubbleTrapText: function() {
+    return GameText.Actions.Traps.RubbleTextOptions.GetRandom();
   },
 
   GetMythosEventText: function() {

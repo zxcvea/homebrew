@@ -24,10 +24,10 @@ $(document).ready(function() {
       if ($('#expansionSoaCheckbox').is(':checked')) {
         $('.expPots').show();
         $('.expOverride').hide();
-        $('.baseOverride').hide();
+        $('.baseOverride, .potsOverride, li.potsOverride').hide();
       } else {
         $('.expPots').show();
-        $('.baseOverride').hide();
+        $('.baseOverride, .potsOverride, li.potsOverride').hide();
       }
     } else {
       if ($('#expansionSoaCheckbox').is(':checked')) {
@@ -36,7 +36,7 @@ $(document).ready(function() {
         $('.baseOverride').hide();
       } else {
         $('.expPots').hide();
-        $('.baseOverride').show();
+        $('.baseOverride, .potsOverride, li.potsOverride').show();
       }
     }
   });

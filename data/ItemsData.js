@@ -1,16 +1,123 @@
+
+
 const BaseItems = {
-  CommonItems: [
-    // (Firearm)
+  Items: [
+    // Melee Weapons (Starting)
+
+    // (Heavy Weapon) [2 Damage] ACTION: You brace the door with the board. Flip this card and place it against a door to your space.
+    { Type: Type.MeleeWeapon, Name: `2 x 4`, Objects: [ `a large wooden plank`, `a heavy wooden plank`, `a wooden plank`, ] },
+    // (Heavy weapon) [2 Damage]
+    { Type: Type.MeleeWeapon, Name: `Crowbar`, Objects: [ `a crowbar`, `a rusty crowbar`, `a steel crowbar`, ] },
+    // (Bladed Weapon) [1 Damage]
+    { Type: Type.MeleeWeapon, Name: `Knife`, Objects: [ `a knife`, `a bloodied knife`, `a sharp knife`, ] },
+    // (Heavy weapon) [1 Damage]
+    { Type: Type.MeleeWeapon, Name: `Lead Pipe`, Objects: [ `a lead pipe`, `a rusty lead pipe`, `a old lead pipe`, ] },
+    // (Bladed weapon) [2 Damage]
+    { Type: Type.MeleeWeapon, Name: `Machete`, Objects: [ `a machete`, `a bloodied machete`, `a rusty machete`, ] },
+    // (Bladed Weapon) [1 Damage] Roll 1 additional die while casting a spell.
+    { Type: Type.MeleeWeapon, Name: `Ritual Dagger`, Objects: [ `a dagger`, `an old dagger`, `an ancient dagger`, `a rusty dagger` ] },
+    // (Heavy Weapon) [1 Damage]
+    { Type: Type.MeleeWeapon, Name: `Shovel`, Objects: [ `a shovel`, `a rusty shovel`, `an garden shovel`, ] },
+    // (Heavy Weapon) [1 Damage]
+    { Type: Type.MeleeWeapon, Name: `Wrench`, Objects: [ `a wrench`, `an old wrench`, `a rusty old wrench`, ] },
+
+    // Melee Weapons (Search)
+
+    // (Heavy Weapon) [2 Damage] You may suffer 2 facedown horror to convert all focus(Magnifying glasses) into {successes} (Stars) while attacking with this card
+    { Type: Type.MeleeWeaponSearch, Name: `Axe`, Objects: [ `an axe`, `a rusty axe`, `a hatchet`, `a rusty hatchet`, `a fire axe` ] },
+    // (Equipment) Roll 2 additional dice while attacking unarmed.
+    { Type: Type.MeleeWeaponSearch, Name: `Brass knuckles`, Objects: [ `some brass knuckles`, `a set of brass knuckles`, ] },
+    // (Bladed Weapon) [2 Damage] You may suffer 2 facedown Horror to convert all focuses (magnifying Glass) to {successes} (Star) while attacking with this card.
+    { Type: Type.MeleeWeaponSearch, Name: `Meat Cleaver`, Objects: [ `a meat cleaver`, `a kitchen meat cleaver`, `a bloodied meat cleaver`, `a rusty meat cleaver` ] },
+    // (Heavy Weapon) [3 Damage]
+    { Type: Type.MeleeWeaponSearch, Name: `Pickaxe`, Objects: [ `a pickaxe`, `an old pickaxe`, `a miner's pickaxe`, ] },
+    // (Heavy Weapon) [2 Damage] You may suffer two facedown damage to convert all Focuses (Magnifying glasses) to stars ({successes}) while attacking with this card.
+    { Type: Type.MeleeWeaponSearch, Name: `Sledgehammer`, Objects: [ `a sledgehammer`, `an heavy sledgehammer`,  ] },
+    // (Bladed Weapon) [1 Damage] ACTION: Discard up to 2 facedown Horror. Then flip this card.
+    { Type: Type.MeleeWeaponSearch, Name: `Whiskey`, Objects: [ `a bottle of whiskey`, `a whiskey bottle` ] },
+
+    // Firearms
+
+    // (Firearm) [2 Damage]
     { Type: Type.Firearm, Name: `.18 Derringer`, Objects: [ `a small handgun`, `a small pistol`, `a small firearm`, `a loaded handgun`, `a loaded pistol` ] },
-    // (Firearm)
+    // (Firearm) [3 Damage]
     { Type: Type.Firearm, Name: `.38 Revolver`, Objects: [ `a handgun`, `a pistol`, `a revolver`, `a loaded handgun`, `a loaded pistol`, `a loaded revolver`, ] },
-    // (Firearm)
+    // (Firearm) [4 Damage]
     { Type: Type.Firearm, Name: `.45 Automatic`, Objects: [ `a handgun`, `a pistol`, `an automatic pistol`, `an automatic handgun`, `a loaded handgun`, `a loaded pistol`, `a loaded revolver`, ] },
-    // (Heavy Weapon) ACTION: You brace the door with the board. Flip this card and place it against a door to your space.
+
+    // Firearms (Special)
+
+    // (Firearm) [5 Damage] You cannot attack a monster in your space with this card
+    { Type: Type.FirearmSpecial, Name: `Carbine Rifle`, Objects: [ `a rifle`, `a carbine rifle`, `an automatic rifle`, ] },
+    // (Firearm) [4 Damage] Once per round, you may reroll all of your dice while attacking with this card.
+    { Type: Type.FirearmSpecial, Name: `Tommy Gun`, Objects: [ `a tommy gun`, `a loaded tommy gun`, ] },
+    // (Firearm) [6 Damage] You cannot attack a monster that is more than 1 space away with this card.
+    { Type: Type.FirearmSpecial, Name: `Shotgun`, Objects: [ `a shotgun`, `a loaded shotgun`, ] },
+
+    // Equipment
+
+    // (Equipment) ACTION: Discard up to 2 facedown damage. Then discard this card
+    { Type: Type.Equipment, Name: `Bandages`, Objects: [ `some bandages`, `bandages`, `a box of bandages`, ] },
+    // (Equipment, Light source) ACTION: Another investigator within range becomes dazed.
+    { Type: Type.Equipment, Name: `Bullseye lantern`, Objects: [ `a lantern`, `a bright lantern`, `a lit lantern`, ] },
+    // (Equipment, Light source) You may discard this card to convert all focuses (magnifying glasses) to {successes} (stars) while casting a spell
+    { Type: Type.Equipment, Name: `Candles`, Objects: [ `some candles`, `a box of candles`, ] },
+    // (Tome) ACTION: You or another investigator within range may discard 1 facedown Horror
+    { Type: Type.Equipment, Name: `King James Bible`, Objects: [ `an old bible`, `a bible`, ] },
+    // (Equipment) Once per round, you may convert an Focus (the magnifying glass) to a success (Star).
+    { Type: Type.Equipment, Name: `Lucky Cigarette Case`, Objects: [ `an old cigarette case`, `a metal cigarette case`, `a cigarette case`, ] },
+    // (Equipment) Once per round you may reroll 1 die.
+    { Type: Type.Equipment, Name: `Lucky Rabbit's Foot`, Objects: [ `a rabbit's foot`, `a lucky rabbit's foot`, `a good luck charm`, ] },
+    // (Equipment) ACTION: You or another investigator within range may discard 1 facedown damage.
+    { Type: Type.Equipment, Name: `Medical Textbook`, Objects: [ `a medical textbook`, `an old medical book`, `a book on medicine`, ] },
+    // (Equipment) At the start of your turn, you may discard 3 Damage card and 3 Horror. If you do, discard this card and end your turn.
+    { Type: Type.Equipment, Name: `Sedatives`, Objects: [ `a bottle of sedatives`, `some sedatives`, ] },
+
+    // Equipment (Special)
+
+    // (Heavy Weapon) [2 Damage] ACTION: Discard all Fire in your space and adjacent spaces.
+    { Type: Type.EquipmentSpecial, Name: `Fire Extinguisher`, Objects: [ `a fire extinguisher`, ] },
+    // (Equipment) [8-10 Damage] ACTION: You light the fuse and toss the explosive, Flip this card and place it in a space within range.
+    // At the end of the investigator phase, each investigator in this space or and adjacent space suffers 8 damage, and each monster in those spaces suffers 10 damage. Then discard this card.
+    { Type: Type.EquipmentSpecial, Name: `Dynamite`, Objects: [ `some sticks of dynamite`, `a stick of dynamite`, `sticks of dynamite`, ] },
+
+    // Spells 
+
+    // (Spell) [3 Damage] 
+    { Type: Type.Spell, Name: `Shriveling`, Objects: [ `a spell` ] },
+    // (Spell) [3 Damage] 
+    { Type: Type.Spell, Name: `Shriveling`, Objects: [ `a spell`, `a spell` ] },
+    // (Spell) [2 Damage]
+    { Type: Type.Spell, Name: `Wither`, Objects: [ `a spell` ] },
+    // (Spell) [2 Damage]
+    { Type: Type.Spell, Name: `Wither`, Objects: [ `a spell`, `a spell` ] },
+    // (Spell) [5 Damage] 
+    { Type: Type.SpellSpecial, Name: `Wrack`, Objects: [ `a spell` ] },
+    // (Spell) [5 Damage] 
+    { Type: Type.SpellSpecial, Name: `Wrack`, Objects: [ `a spell`, `a spell` ] },
+  ],
+
+  Relics: [
+    { Type: Type.Relic, Name: `Grotesque Stone`, Objects: [ `a relic`, ] },
+    { Type: Type.Relic, Name: `Grotesque Stone`, Objects: [ `a relic`, `a relic`, ] },
+    { Type: Type.Relic, Name: `Grotesque Stone`, Objects: [ `a relic`, `a relic`, `a relic`, ] },
+    { Type: Type.Relic, Name: `Grotesque Stone`, Objects: [ `a relic`, `a relic`, `a relic`, `a relic`, ] },
+  ],
+
+
+
+  CommonItems: [
+    // (Firearm) [2 Damage]
+    { Type: Type.Firearm, Name: `.18 Derringer`, Objects: [ `a small handgun`, `a small pistol`, `a small firearm`, `a loaded handgun`, `a loaded pistol` ] },
+    // (Firearm) [3 Damage]
+    { Type: Type.Firearm, Name: `.38 Revolver`, Objects: [ `a handgun`, `a pistol`, `a revolver`, `a loaded handgun`, `a loaded pistol`, `a loaded revolver`, ] },
+    // (Firearm) [4 Damage]
+    { Type: Type.Firearm, Name: `.45 Automatic`, Objects: [ `a handgun`, `a pistol`, `an automatic pistol`, `an automatic handgun`, `a loaded handgun`, `a loaded pistol`, `a loaded revolver`, ] },
+    // (Heavy Weapon) [2 Damage] ACTION: You brace the door with the board. Flip this card and place it against a door to your space.
     { Type: Type.HeavyWeapon, Name: `2 x 4`, Objects: [ `a large wooden plank`, `a heavy wooden plank`, `a wooden plank`, ] },
     // (Tome) Roll 1 additional die while resolving a lore (the little book) test.
     { Type: Type.Equipment, Name: `Arcane Manuscript`, Objects: [ `an old manuscript`, `an ancient manuscript`, ] },
-    // (Heavy Weapon) You may suffer 2 facedown horror to convert all focus(Magnifying glasses) into {successes} (Stars) while attacing with this card
+    // (Heavy Weapon) [2 Damage] You may suffer 2 facedown horror to convert all focus(Magnifying glasses) into {successes} (Stars) while attacking with this card
     { Type: Type.HeavyWeapon, Name: `Axe`, Objects: [ `an axe`, `a rusty axe`, `a hatchet`, `a rusty hatchet`, `a fire axe` ] },
     // (Equipment) ACTION: Discard up to 2 facedown damage. Then discard this card
     { Type: Type.Equipment, Name: `Bandages`, Objects: [ `some bandages`, `bandages`, `a box of bandages`, ] },
@@ -20,22 +127,22 @@ const BaseItems = {
     { Type: Type.LightSource, Name: `Bullseye lantern`, Objects: [ `a lantern`, `a bright lantern`, `a lit lantern`, ] },
     // (Light Source) You may discard this card to convert all focuses (magnifying glasses) to {successes} (stars) while casting a spell
     { Type: Type.LightSource, Name: `Candles`, Objects: [ `some candles`, `a box of candles`, ] },
-    // (Firearm) You cannot attack a monster in your space with this card
+    // (Firearm) [5 Damage] You cannot attack a monster in your space with this card
     { Type: Type.Firearm, Name: `Carbine Rifle`, Objects: [ `a rifle`, `a carbine rifle`, `an automatic rifle`, ] },
-    // (Heavy weapon)
+    // (Heavy weapon) [2 Damage]
     { Type: Type.HeavyWeapon, Name: `Crowbar`, Objects: [ `a crowbar`, `a rusty crowbar`, `a steel crowbar`, ] },
-    // (Equipment) ACTION: You light the fuse and toss the explosive, Flip this card and place it in a space within range.
+    // (Equipment) [8-10 Damage] ACTION: You light the fuse and toss the explosive, Flip this card and place it in a space within range.
     // At the end of the investigator phase, each investigator in this space or and adjacent space suffers 8 damage, and each monster in those spaces suffers 10 damage. Then discard this card.
     { Type: Type.Equipment, Name: `Dynamite`, Objects: [ `some sticks of dynamite`, `a stick of dynamite`, `sticks of dynamite`, ] },
     // (Equipment) Roll 1 additional die while evading a monster
     { Type: Type.Equipment, Name: `Elder sign Pendant`, Objects: [ `an engraved pendant`, `a pendant`, `an old pendant`, ] },
     // (Equipment) Roll 1 additional die while a monster is attacking you
-    { Type: Type.Equipment, Name: `Elder ward`, Objects: [ `a small engraved stone`, `a small stone engraved with an ancient symbol`, `a stone bearing an ancient symbol`, ] },
-    // (Heavy Weapon) ACTION: Discard all Fire in your space and adjacent spaces.
+    { Type: Type.Unused, Name: `Elder ward`, Objects: [ `a small engraved stone`, `a small stone engraved with an ancient symbol`, `a stone bearing an ancient symbol`, ] },
+    // (Heavy Weapon) [2 Damage] ACTION: Discard all Fire in your space and adjacent spaces.
     { Type: Type.HeavyWeapon, Name: `Fire Extinguisher`, Objects: [ `a fire extinguisher`, ] },
-    // (Equipment) ACTION: Place Fire in a space within range. Each monster in that space suffers 2 damage. Then flip this card
+    // (Equipment) [2 Damage] ACTION: Place Fire in a space within range. Each monster in that space suffers 2 damage. Then flip this card
     // ACTION: Place Fire in a space within range. Each monster in that space suffers 2 damage. Then discard this card.
-    { Type: Type.Equipment, Name: `Flare Gun`, Objects: [ `a flare gun`, ] },
+    { Type: Type.Unused, Name: `Flare Gun`, Objects: [ `a flare gun`, ] },
     // (Equipment) Roll 1 additional die while resolving a Willpower (the little head icon) test
     { Type: Type.Equipment, Name: `Holy Cross`, Objects: [ `a holy cross`, `a wooden cross`, `a gold cross`, ] },
     // (Equipment) ACTION: Discard 1 horror and become focused. Then discard this card.
@@ -44,44 +151,44 @@ const BaseItems = {
     { Type: Type.LightSource, Name: `Kerosene Lantern`, Objects: [ `a kerosene lantern`, `an old lantern`, `a lantern`, ] },
     // (Tome) ACTION: You or another investigator within range may discard 1 facedown Horror
     { Type: Type.Equipment, Name: `King James Bible`, Objects: [ `an old bible`, `a bible`, ] },
-    // (Bladed Weapon)
+    // (Bladed Weapon) [1 Damage]
     { Type: Type.BladedWeapon, Name: `Knife`, Objects: [ `a knife`, `a bloodied knife`, `a sharp knife`, ] },
-    // (Heavy weapon)
+    // (Heavy weapon) [1 Damage]
     { Type: Type.HeavyWeapon, Name: `Lead Pipe`, Objects: [ `a lead pipe`, `a rusty lead pipe`, `a old lead pipe`, ] },
     // (Equipment) Once per round, you may convert an Focus (the magnifying glass) to a success (Star).
     { Type: Type.Equipment, Name: `Lucky Cigarette Case`, Objects: [ `an old cigarette case`, `a metal cigarette case`, `a cigarette case`, ] },
     // (Equipment) Once per round you may reroll 1 die.
     { Type: Type.Equipment, Name: `Lucky Rabbit's Foot`, Objects: [ `a rabbit's foot`, `a lucky rabbit's foot`, `a good luck charm`, ] },
-    // (Bladed weapon)
+    // (Bladed weapon) [2 Damage]
     { Type: Type.BladedWeapon, Name: `Machete`, Objects: [ `a machete`, `a bloodied machete`, `a rusty machete`, ] },
     // (Equipment) Roll 1 additional die while resolving an Observation (Eye) test.
     { Type: Type.Equipment, Name: `Magnifying Glass`, Objects: [ `a magnifying glass`, `an old magnifying glass`, ] },
-    // (Bladed Weapon) You may suffer 2 facedown Horror to convert all focuses (magnifying Glass) to {successes} (Star) while attacking with this card.
+    // (Bladed Weapon) [2 Damage] You may suffer 2 facedown Horror to convert all focuses (magnifying Glass) to {successes} (Star) while attacking with this card.
     { Type: Type.BladedWeapon, Name: `Meat Cleaver`, Objects: [ `a meat cleaver`, `a kitchen meat cleaver`, `a bloodied meat cleaver`, `a rusty meat cleaver` ] },
     // (Equipment) ACTION: You or another investigator within range may discard 1 facedown damage.
     { Type: Type.Equipment, Name: `Medical Textbook`, Objects: [ `a medical textbook`, `an old medical book`, `a book on medicine`, ] },
-    // (Heavy Weapon) 
+    // (Heavy Weapon) [3 Damage]
     { Type: Type.HeavyWeapon, Name: `Pickaxe`, Objects: [ `a pickaxe`, `an old pickaxe`, `a miner's pickaxe`, ] },
-    // (Equipment) You may perform 1 additional puzzlestep while attempting a puzzle
-    { Type: Type.Equipment, Name: `Pocket watch`, Objects: [ `a pocket watch`, `an old pocket watch`, `a silver pocket watch`, ] },
-    // (Bladed Weapon) Roll 1 additional die while casting a spell.
+    // (Equipment) You may perform 1 additional puzzle step while attempting a puzzle
+    { Type: Type.Unused, Name: `Pocket watch`, Objects: [ `a pocket watch`, `an old pocket watch`, `a silver pocket watch`, ] },
+    // (Bladed Weapon) [1 Damage] Roll 1 additional die while casting a spell.
     { Type: Type.BladedWeapon, Name: `Ritual Dagger`, Objects: [ `a dagger`, `an old dagger`, `an ancient dagger`, `a rusty dagger` ] },
-    // (Equipment) At the start of your turn, you may discard 3 Damage card and 3 Horror. If you do, discard this cad and end your turn.
+    // (Equipment) At the start of your turn, you may discard 3 Damage card and 3 Horror. If you do, discard this card and end your turn.
     { Type: Type.Equipment, Name: `Sedatives`, Objects: [ `a bottle of sedatives`, `some sedatives`, ] },
-    // (Firearm) You cannot attack a monster that is more than 1 space away with this card.
+    // (Firearm) [6 Damage] You cannot attack a monster that is more than 1 space away with this card.
     { Type: Type.Firearm, Name: `Shotgun`, Objects: [ `a shotgun`, `a loaded shotgun`, ] },
-    // (Heavy Weapon) 
+    // (Heavy Weapon) [1 Damage]
     { Type: Type.HeavyWeapon, Name: `Shovel`, Objects: [ `a shovel`, `a rusty shovel`, `an garden shovel`, ] },
-    // (Heavy Weapon) You may suffer two facedown damage to convert all Focuses (Magnifying glasses) to stars ({successes}) while attacking with this card.
+    // (Heavy Weapon) [2 Damage] You may suffer two facedown damage to convert all Focuses (Magnifying glasses) to stars ({successes}) while attacking with this card.
     { Type: Type.HeavyWeapon, Name: `Sledgehammer`, Objects: [ `a sledgehammer`, `an heavy sledgehammer`,  ] },
-    // (Firearm) Once per round, you may reroll all of your dice while attacking with this card.
+    // (Firearm) [4 Damage] Once per round, you may reroll all of your dice while attacking with this card.
     { Type: Type.Firearm, Name: `Tommy Gun`, Objects: [ `a tommy gun`, `a loaded tommy gun`, ] },
-    // (Heavy Weapon, Light Source) When an investigator drops this card, place a Fire in this space.
+    // (Heavy Weapon, Light Source) [1 Damage] When an investigator drops this card, place a Fire in this space.
     { Type: Type.LightSource, Name: `Torch`, Objects: [ `a torch`, `an unlit torch`, ] },
     // (Equipment) ACTION: Discard up to 2 facedown Horror. Then flip this card.
-    // (Bladed Weapon)
-    { Type: Type.BladedWeapon, Name: `Whiskey`, Objects: [ `a bottle of whiskey`,  ] },
-    // (Heavy Weapon) 
+    // (Bladed Weapon) [1 Damage]
+    { Type: Type.BladedWeapon, Name: `Whiskey`, Objects: [ `a bottle of whiskey`, `a whiskey bottle` ] },
+    // (Heavy Weapon) [1 Damage]
     { Type: Type.HeavyWeapon, Name: `Wrench`, Objects: [ `a wrench`, `an old wrench`, `a rusty old wrench`, ] },
   ],
   Keys: [
@@ -136,16 +243,30 @@ const BaseItems = {
 
 // Beyond the Threshold
 const BttItems = {
-  CommonItems: [
-    // (Firearm) You may convert an focus (Magnifying Glass) to a success (Star) while attacking with this card.
+  Items: [
+    // (Firearm) [2 Damage] You may convert an focus (Magnifying Glass) to a success (Star) while attacking with this card.
     { Type: Type.Firearm, Name: `.25 Automatic`, Objects: [ `a small handgun`, `a small pistol`, `a small firearm`, `a loaded handgun`, `a loaded pistol` ] },
-    // (Heavy Weapon)
+
+    // (Heavy Weapon) [2 Damage]
+    { Type: Type.MeleeWeapon, Name: `Blackjack`, Objects: [ `a bludgeoning weapon`, `a blackjack`, `a heavy leather slapper`, ] },
+    // (Bladed Weapon) [3 Damage]
+    { Type: Type.MeleeWeapon, Name: `Enchanted Blade`, Objects: [ `an enchanted blade`, `a sharp dagger`, `an engraved knife`, ] },
+    // (Bladed Weapon) [1 Damage] You may suffer 1 facedown Damage to convert an Focus (Magnifying Glass) to a success (Star) while attacking with this card.
+    { Type: Type.MeleeWeapon, Name: `Razor`, Objects: [ `a sharp razor`, `a shaving razor`, `an old razor` ] },
+
+    // (Tome) You may become Mesmerized to convert all Focus(Magnifying Glass) to Success (Stars) while resolving a test.
+    { Type: Type.Equipment, Name: `Tome of secrets`, Objects: [ `an old tome`, `a book of secrets`, `an old book`, ] },
+  ],
+  CommonItems: [
+    // (Firearm) [2 Damage] You may convert an focus (Magnifying Glass) to a success (Star) while attacking with this card.
+    { Type: Type.Firearm, Name: `.25 Automatic`, Objects: [ `a small handgun`, `a small pistol`, `a small firearm`, `a loaded handgun`, `a loaded pistol` ] },
+    // (Heavy Weapon) [2 Damage]
     { Type: Type.HeavyWeapon, Name: `Blackjack`, Objects: [ `a bludgeoning weapon`, `a blackjack`, `a heavy leather slapper`, ] },
-    // (Bladed Weapon)
+    // (Bladed Weapon) [3 Damage]
     { Type: Type.BladedWeapon, Name: `Enchanted Blade`, Objects: [ `an enchanted blade`, `a sharp dagger`, `an engraved knife`, ] },
     // (Equipment) Roll 1 additional die while resolving an Influence (shaking hands) test.
     { Type: Type.Equipment, Name: `Fine Clothes`, Objects: [ `some fine clothes`, `some fancy clothes`, `some fancy attire`, `some elaborate attire` ] },
-    // (Bladed Weapon) You may suffer 1 facedown Damage to convert an Focus (Magnifying Glass) to a success (Star) while attacking with this card.
+    // (Bladed Weapon) [1 Damage] You may suffer 1 facedown Damage to convert an Focus (Magnifying Glass) to a success (Star) while attacking with this card.
     { Type: Type.BladedWeapon, Name: `Razor`, Objects: [ `a sharp razor`, `a shaving razor`, `an old razor` ] },
     // (Tome) Effects cannot cause you to discard your Clues unless you choose to.
     { Type: Type.Equipment, Name: `Scribes Journal`, Objects: [ `a scribe's journal`, `an old journal`, `a leather book`, ] },
@@ -169,6 +290,30 @@ const BttItems = {
 
 // Streets of Arkham
 const SoaItems = {
+  Items: [
+    // (Equipment) If you would suffer 2 or more Damage, suffer 1 fewer Damage instead.
+    { Type: Type.Equipment, Name: `Bulletproof Vest`, Objects: [ `a bulletproof vest`, ] },
+    // (Bladed Weapon) You may deal 1 additional damage while attacking with this card.
+    { Type: Type.MeleeWeapon, Name: `Scalpel`, Objects: [ `a scalpel`, `a sharp scalpel`, ] },
+    // (Firearm) [1 Damage] You may deal 1 damage to a monster in your space when you forfeit an action while evading a monster.
+    { Type: Type.Firearm, Name: `Snubnose Revolver`, Objects: [ `a small handgun`, `a small pistol`, `a small firearm`, `a loaded handgun`, `a loaded pistol` ] },
+    // (Equipment) [2 Damage] Action: Discard 1 Damage and become focused. Then flip this card.
+    { Type: Type.Equipment, Name: `Thermos`, Objects: [ `a metal canister containing a liquid of some sort`, `a metal thermos`, `a metal canister`, ] },
+    // (Spell) [4 Damage] You may suffer 1 facedown Damage to deal 1 additional damage while attacking with this card.
+    { Type: Type.SpellSpecial, Name: `Azure Flame`, Objects: [ `a spell`, ] },
+  ],
+
+  Relics: [
+    // (Relic) When you suffer 1 or more Damage, become Dazed
+    { Type: Type.Relic, Name: `Mysterious Idol`, Objects: [ `a relic` ] },
+    // (Relic) If you move more than a single space as part of a move action, suffer 1 facedown Damage.
+    { Type: Type.Relic, Name: `Star Calendar`, Objects: [ `a relic` ] },
+    // (Relic) When you perform a move action, you can only move up to 1 space.
+    { Type: Type.Relic, Name: `Stone Chest`, Objects: [ `a relic` ] },
+    // (Relic) When you suffer 1 or more Horror become Dazed.
+    { Type: Type.Relic, Name: `Strange Tablet`, Objects: [ `a relic` ] },
+  ],
+
   CommonItems: [
     // (Equipment) If you would suffer 2 or more Damage, suffer 1 fewer Damage instead.
     { Type: Type.Equipment, Name: `Bulletproof Vest`, Objects: [ `a bulletproof vest`, ] },
@@ -188,9 +333,9 @@ const SoaItems = {
     { Type: Type.SkillImprovement, Name: `Ocular Extract`, Objects: [ `a jar of human eyes`, `a jar of extract`, ] },
     // (Bladed Weapon) You may deal 1 additional damage while attacking with this card.
     { Type: Type.BladedWeapon, Name: `Scalpel`, Objects: [ `a scalpel`, `a sharp scalpel`, ] },
-    // (Firearm) You may deal 1 damage to a monster in your space when you forfeit an action while evading a monster.
+    // (Firearm) [1 Damage] You may deal 1 damage to a monster in your space when you forfeit an action while evading a monster.
     { Type: Type.Firearm, Name: `Snubnose Revolver`, Objects: [ `a small handgun`, `a small pistol`, `a small firearm`, `a loaded handgun`, `a loaded pistol` ] },
-    // (Equipment) Action: Discard 1 Damage and become focused. Then flip this card.
+    // (Equipment) [2 Damage] Action: Discard 1 Damage and become focused. Then flip this card.
     { Type: Type.Equipment, Name: `Thermos`, Objects: [ `a metal canister containing a liquid of some sort`, `a metal thermos`, `a metal canister`, ] },
   ],
   Relic: [
@@ -222,6 +367,7 @@ const SoaItems = {
 
 // Sanctum of Twilight
 const SotItems = {
+  Items: [],
   CommonItems: [
     { Type: Type.CommonItem, Name: `Binding Powder`, Objects: [ `a bottle of powder`, `a pouch of dust`, `a pouch of powder`, `a vial of dust`, `a vial of powder` ] },
     { Type: Type.CommonItem, Name: `Convincing Dummy`, Objects: [ `a ventriloquist dummy`, `a lifelike dummy`, `a realistic dummy`, `a wooden puppet`, ] },
@@ -254,14 +400,26 @@ const SotItems = {
 
 // Horrific Journeys
 const HjItems = {
+  Items: [
+    // (Firearm) [3 Damage] You may deal 1 additional damage while attacking a monster in your space with this card.
+    { Type: Type.Firearm, Name: `.41 Derringer`, Objects: [ `a small handgun`, `a small pistol`, `a small firearm`, `a loaded handgun`, `a loaded pistol` ] },
+    // (Heavy Weapon) [3 Damage]
+    { Type: Type.MeleeWeaponSearch, Name: `Coal Shovel`, Objects: [ `a coal shovel`, `a heavy shovel`, `an old shovel`, ] },
+    // (Equipment) You may ignore Water. You cannot become Dazed or Stunned.
+    { Type: Type.EquipmentSpecial, Name: `Diver's Helmet`, Objects: [ `a diver's helmet`, `a diving helmet`, ] },
+    // (Firearm) [* Damage] This weapon's damage is equal to the number of success(stars) rolled while attacking with this card.
+    { Type: Type.FirearmSpecial, Name: `Gatling Gun`, Objects: [ `a gatling gun`, ] },
+    // (Spell) [4 Damage] You may suffer 1 facedown Damage to deal 1 additional damage while attacking with this card.
+    { Type: Type.SpellSpecial, Name: `Storm of Spirits`, Objects: [ `a spell`, ]},
+  ],
   CommonItems: [
-    // (Firearm) You may deal 1 additional damage while attacking a monster in your space with this card.
+    // (Firearm) [3 Damage] You may deal 1 additional damage while attacking a monster in your space with this card.
     { Type: Type.Firearm, Name: `.41 Derringer`, Objects: [ `a small handgun`, `a small pistol`, `a small firearm`, `a loaded handgun`, `a loaded pistol` ] },
     // (Tome) You may ignore Rifts.
     { Type: Type.RiftEquipment, Name: `Astronomy Guidebook`, Objects: [ `a book`, `a book on Astronomy`, `an Astronomy guidebook`, `an old textbook`, `a textbook`, `a guidebook`, ] },
     // (Equipment) You may convert an Focus(magnifying Glass) to a Success(star) while resolving an Influence (shaking Hands) test.
     { Type: Type.Equipment, Name: `Captains hat`, Objects: [ `a Captain's hat`, `a sea hat`, `a hat`, ] },
-    // (Heavy Weapon) 
+    // (Heavy Weapon) [3 Damage]
     { Type: Type.HeavyWeapon, Name: `Coal Shovel`, Objects: [ `a coal shovel`, `a heavy shovel`, `an old shovel`, ] },
     // (Equipment) You may ignore Water. You cannot become Dazed or Stunned.
     { Type: Type.WaterEquipment, Name: `Diver's Helmet`, Objects: [ `a diver's helmet`, `a diving helmet`, ] },
@@ -269,17 +427,17 @@ const HjItems = {
     { Type: Type.WaterEquipment, Name: `Diver's Journal`, Objects: [ `a diver's journal`, `a diving manual`, `a book on diving`, ] },
     // (Equipment) Discard all Rifts from your space and adjacent spaces. Then gain 1 Clue.
     { Type: Type.RiftEquipment, Name: `Gate Box`, Objects: [ `some bandages`, `bandages`, `a box of bandages`, ] },
-    // (Firearm) This weapon's damage is equal to the number of success(stars) rolled while attacking with this card.
+    // (Firearm) [* Damage] This weapon's damage is equal to the number of success(stars) rolled while attacking with this card.
     { Type: Type.Firearm, Name: `Gatling Gun`, Objects: [ `a gatling gun`, ] },
-    // (Bladed Weapon) Action: You hurl your weapon (agility/wings;2). If you pass, place this card in a space within range. Then a monster in that space suffers 3 damage.
+    // (Bladed Weapon) [3 Damage] Action: You hurl your weapon (agility/wings;2). If you pass, place this card in a space within range. Then a monster in that space suffers 3 damage.
     { Type: Type.BladedWeapon, Name: `Harpoon`, Objects: [ `a harpoon`, `a heavy harpoon`, ] },
-    // (Heavy Weapon) You may ignore Water
+    // (Heavy Weapon) [2 Damage] You may ignore Water
     { Type: Type.WaterEquipment, Name: `Life Preserver`, Objects: [ `a life preserver`, `a life float`, `a life buoy`, ] },
     // (Equipment) You may discard Lost in Time and Space during your turn to place your investigator figure in any explored space.
     { Type: Type.RiftEquipment, Name: `Map of the Ley Lines`, Objects: [ `a map`, `an old map`, `a chart`, ] },
     // (Equipment) Roll 1 additional die while Lost in Time and Space.
     { Type: Type.RiftEquipment, Name: `Mystic Sextant`, Objects: [ `a navigation instrument`, `a navigation tool`, `a navigational sextant`, ] }, 
-    // (Heavy Weapon) 
+    // (Heavy Weapon) [2 Damage]
     { Type: Type.HeavyWeapon, Name: `Sturdy Luggage`, Objects: [ `some sturdy luggage`, `some luggage`, ] },
   ],
   Equipment: [
@@ -309,6 +467,30 @@ const HjItems = {
 
 // Path of the Serpent
 const PotsItems = {
+  Items: [
+    // (Equipment) You cannot become poisoned
+    { Type: Type.Equipment, Name: `Antivenom`, Objects: [ `a syringe of antivenom`, `Antivenom`, `a syringe`, ] },
+    // (Equipment) Roll 1 additional die during the mythos phase
+    { Type: Type.Equipment, Name: `Disc of Itzamna`, Objects: [ `a ancient amulet`, `an old amulet`, `an amulet`, ] },
+    // (Tome) Action: Gain 2 Clues and become Fearless. Then discard this card
+    { Type: Type.Equipment, Name: `Expedition Log`, Objects: [ `a logbook`, `a book`, `an expedition log`, ] },
+    // (Equipment) You may become Poisoned to convert all Magnifying Glass (Clues) to Star (Success) while resolving a test.
+    { Type: Type.PoisonEquipment, Name: `Serpent Bracelet`, Objects: [ `a bracelet`, `an engraved bracelet`, `an old bracelet`, ] },
+    // (Bladed weapon) [2 Damage]
+    { Type: Type.BladedWeapon, Name: `Survival Knife`, Objects: [ `a survival knife`, `a sharp knife`, `a knife`, ] },
+    // (Spell) [4 Damage] When a monster spawns within range, it suffers 1 damage.
+    { Type: Type.SpellSpecial, Name: `Call the Storm`, Objects: [ `a spell`, ] },
+    // (Spell) Action: Move a monster or investigator to your space. Then flip this card.
+    { Type: Type.SpellSpecial, Name: `Summoning`, Objects: [ `a spell`, ] },
+  ],
+  Relics: [
+    { Type: Type.Relic, Name: `Strange Tablet`, Objects: [ `a relic` ] },
+    { Type: Type.Evidence, Name: `Citrine Snake`, Objects: [ `a relic`, ] },
+    { Type: Type.Evidence, Name: `Jade crocodile`, Objects: [ `a relic`, ] },
+    { Type: Type.Evidence, Name: `Obsidian Jaguar`, Objects: [ `a relic`, ] },
+    { Type: Type.Evidence, Name: `Turquoise Eagle`, Objects: [ `a relic`, ] },
+  ],
+
   CommonItems: [
     // (Equipment) You cannot become poisoned
     { Type: Type.CommonItem, Name: `Antivenom`, Objects: [ `a syringe of antivenom`, `Antivenom`, `a syringe`, ] },
@@ -316,7 +498,7 @@ const PotsItems = {
     { Type: Type.Equipment, Name: `Disc of Itzamna`, Objects: [ `a ancient amulet`, `an old amulet`, `an amulet`, ] },
     // (Tome) Action: Gain 2 Clues and become Fearless. Then discard this card
     { Type: Type.Equipment, Name: `Expedition Log`, Objects: [ `a logbook`, `a book`, `an expedition log`, ] },
-    // (Bladed Weapon) When you move into a space, you may discard any number of overgrowth tokens from it.
+    // (Bladed Weapon) [3 Damage] When you move into a space, you may discard any number of overgrowth tokens from it.
     { Type: Type.OvergrowthEquipment, Name: `Hedge Shears`, Objects: [ `some hedge shears`, `some shears`, ] },
     // (Equipment) At the end of the investigator phase, you may discard 2 Clues to become Fearless
     { Type: Type.Equipment, Name: `Jeweled Skull`, Objects: [ `a jeweled skull`, `a skull encrusted with jewels`, ] },
@@ -330,9 +512,9 @@ const PotsItems = {
     { Type: Type.RubbleEquipment, Name: `Pith Helmet`, Objects: [ `a helmet`, `an expedition helmet`, `a pith helmet` ] }, 
     // (Equipment) You may become Poisoned to convert all Magnifying Glass (Clues) to Star (Success) while resolving a test.
     { Type: Type.PoisonEquipment, Name: `Serpent Bracelet`, Objects: [ `a bracelet`, `an engraved bracelet`, `an old bracelet`, ] },
-    // (Bladed weapon) 
+    // (Bladed weapon) [2 Damage]
     { Type: Type.BladedWeapon, Name: `Survival Knife`, Objects: [ `a survival knife`, `a sharp knife`, `a knife`, ] },
-    // (Heavy weapon) Once per round, you may roll 1 additional die while resolving a test in an outdoor space.
+    // (Heavy weapon) [2 Damage] Once per round, you may roll 1 additional die while resolving a test in an outdoor space.
     { Type: Type.HeavyWeapon, Name: `Survival Pack`, Objects: [ `a rugged backpack`, `a survival backpack`, `a backpack`, ] },
     // (Bladed Weapon) 
     { Type: Type.BladedWeapon, Name: `Timeworn Brand`, Objects: [ `an ancient blade`, `a blade`, `a sharp blade`, ] },
